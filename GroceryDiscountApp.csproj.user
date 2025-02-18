@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Compile Update="components\.Designer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="components\1WholeChicken.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="components\Apple.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="components\Avocado.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="components\Banana.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="components\Breast.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="components\carrots.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="components\Chickenwings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="components\cucumber.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="components\Dairy.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="components\Eggplant.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="components\Fruits.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="components\Mango.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="components\Meat.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="components\Onion.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="components\Orange.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="components\Pineapple.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="components\Ribs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="components\tomato.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="components\Vegetables.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="components\Watermelon.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>
