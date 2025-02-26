@@ -26,60 +26,75 @@
         /// Required method for Designer support - do not modify 
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
-        {
+        private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(_1WholeChicken));
             label2 = new Label();
             label1 = new Label();
             pictureBox1 = new PictureBox();
+            allProduct1 = new AllProduct();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Helvetica", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = SystemColors.Control;
-            label2.Location = new Point(3, 164);
+            label2.Location = new Point(3, 219);
             label2.Name = "label2";
-            label2.Size = new Size(52, 19);
+            label2.Size = new Size(62, 24);
             label2.TabIndex = 44;
             label2.Text = "230₱ ";
-            label2.Click += label2_Click;
+            label2.Click += WholeChickenClicked;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
-            label1.Font = new Font("Helvetica", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.Control;
-            label1.Location = new Point(0, 135);
+            label1.Location = new Point(0, 180);
             label1.Name = "label1";
-            label1.Size = new Size(128, 19);
+            label1.Size = new Size(151, 24);
             label1.TabIndex = 43;
             label1.Text = "Whole Chicken";
+            label1.Click += WholeChickenClicked;
             // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(0, 5);
+            pictureBox1.Location = new Point(0, 7);
+            pictureBox1.Margin = new Padding(3, 4, 3, 4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(157, 127);
+            pictureBox1.Size = new Size(179, 169);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 42;
             pictureBox1.TabStop = false;
+            pictureBox1.Click += WholeChickenClicked;
+            // 
+            // allProduct1
+            // 
+            allProduct1.AutoScroll = true;
+            allProduct1.Location = new Point(116, 230);
+            allProduct1.Margin = new Padding(3, 4, 3, 4);
+            allProduct1.Name = "allProduct1";
+            allProduct1.Size = new Size(771, 944);
+            allProduct1.TabIndex = 45;
             // 
             // _1WholeChicken
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(23, 162, 184);
+            Controls.Add(allProduct1);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "_1WholeChicken";
-            Size = new Size(157, 189);
+            Size = new Size(179, 252);
             Load += _1WholeChicken_Load;
+            Click += WholeChickenClicked;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -90,5 +105,6 @@
         protected Label label2;
         private Label label1;
         private PictureBox pictureBox1;
+        private AllProduct allProduct1;
     }
 }

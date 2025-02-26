@@ -10,21 +10,15 @@ using System.Windows.Forms;
 
 namespace GroceryDiscountApp.components
 {
-    public partial class Eggplant : UserControl
-    {
-        public Eggplant()
-        {
+    public partial class Eggplant : UserControl {
+        public Eggplant() {
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
+        private void EggplantClicked(object sender, EventArgs e) {
+            Products productList = Products.Instance;
 
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
+            productList.AddProduct("Eggplant", 40, 1);
         }
     }
 }
