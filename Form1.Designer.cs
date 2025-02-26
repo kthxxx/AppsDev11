@@ -33,9 +33,6 @@
             button1 = new Button();
             panel2 = new Panel();
             panel3 = new Panel();
-            panel4 = new Panel();
-            BT_Favor = new Button();
-            BT_Items = new Button();
             panel5 = new Panel();
             panel6 = new Panel();
             AllTotal = new TextBox();
@@ -120,7 +117,6 @@
             button1.Size = new Size(52, 53);
             button1.TabIndex = 4;
             button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click_1;
             // 
             // panel2
             // 
@@ -137,48 +133,6 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(1197, 66);
             panel3.TabIndex = 1;
-            // 
-            // panel4
-            // 
-            panel4.BackColor = SystemColors.ActiveBorder;
-            panel4.Controls.Add(BT_Favor);
-            panel4.Controls.Add(BT_Items);
-            panel4.Location = new Point(90, 67);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(708, 66);
-            panel4.TabIndex = 2;
-            // 
-            // BT_Favor
-            // 
-            BT_Favor.BackColor = SystemColors.ActiveBorder;
-            BT_Favor.FlatAppearance.BorderSize = 0;
-            BT_Favor.FlatStyle = FlatStyle.Flat;
-            BT_Favor.Font = new Font("Helvetica", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            BT_Favor.ForeColor = Color.FromArgb(0, 123, 255);
-            BT_Favor.Location = new Point(133, 0);
-            BT_Favor.Margin = new Padding(0);
-            BT_Favor.Name = "BT_Favor";
-            BT_Favor.Size = new Size(134, 66);
-            BT_Favor.TabIndex = 1;
-            BT_Favor.Text = "Favorites";
-            BT_Favor.UseVisualStyleBackColor = false;
-            BT_Favor.Click += BT_Favor_Click;
-            // 
-            // BT_Items
-            // 
-            BT_Items.BackColor = SystemColors.ActiveBorder;
-            BT_Items.FlatAppearance.BorderSize = 0;
-            BT_Items.FlatStyle = FlatStyle.Flat;
-            BT_Items.Font = new Font("Helvetica", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            BT_Items.ForeColor = Color.FromArgb(0, 123, 255);
-            BT_Items.Location = new Point(-1, 0);
-            BT_Items.Margin = new Padding(0);
-            BT_Items.Name = "BT_Items";
-            BT_Items.Size = new Size(134, 66);
-            BT_Items.TabIndex = 0;
-            BT_Items.Text = "All Items";
-            BT_Items.UseVisualStyleBackColor = false;
-            BT_Items.Click += button1_Click;
             // 
             // panel5
             // 
@@ -266,7 +220,6 @@
             QuantityTotal.Size = new Size(100, 23);
             QuantityTotal.TabIndex = 7;
             QuantityTotal.Text = "₱₱₱.₱₱";
-            QuantityTotal.TextChanged += textBox2_TextChanged;
             // 
             // LB_Quantity
             // 
@@ -388,13 +341,13 @@
             BT_Meat.TabIndex = 7;
             BT_Meat.Text = "Meat";
             BT_Meat.UseVisualStyleBackColor = true;
-            BT_Meat.Click += BT_Meat_Click;
+
             // 
             // BT_Dairy
             // 
             BT_Dairy.Font = new Font("Helvetica", 14.25F, FontStyle.Bold);
             BT_Dairy.ForeColor = Color.FromArgb(23, 162, 185);
-            BT_Dairy.Location = new Point(96, 382);
+            BT_Dairy.Location = new Point(105, 250);
             BT_Dairy.Name = "BT_Dairy";
             BT_Dairy.Size = new Size(111, 48);
             BT_Dairy.TabIndex = 6;
@@ -404,16 +357,15 @@
             // 
             // BT_All
             // 
-            BT_All.BackColor = Color.FromArgb(23, 162, 184);
+            BT_All.BackColor = Color.White;
             BT_All.Font = new Font("Helvetica", 14.25F, FontStyle.Bold);
-            BT_All.ForeColor = Color.White;
-            BT_All.Location = new Point(96, 220);
+            BT_All.ForeColor = Color.FromArgb(23, 162, 184);
+            BT_All.Location = new Point(105, 88);
             BT_All.Name = "BT_All";
             BT_All.Size = new Size(111, 48);
             BT_All.TabIndex = 8;
             BT_All.Text = "ALL";
             BT_All.UseVisualStyleBackColor = false;
-            BT_All.Click += button2_Click_1;
             // 
             // dataGridView1
             // 
@@ -606,7 +558,6 @@
             Controls.Add(BT_Fruit);
             Controls.Add(BT_Vegi);
             Controls.Add(panel5);
-            Controls.Add(panel4);
             Controls.Add(panel3);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
@@ -629,9 +580,7 @@
         private Panel panel1;
         private Panel panel2;
         private Panel panel3;
-        private Panel panel4;
         private Panel panel5;
-        private Button BT_Items;
         private Button button1;
         private TextBox textBox1;
         private Button BT_Vegi;
@@ -639,7 +588,6 @@
         private Button BT_Meat;
         private Button BT_Dairy;
         private Button BT_All;
-        private Button BT_Favor;
         private Button BT_Calculate;
         private Button BT_Remove;
         private Panel panel6;
