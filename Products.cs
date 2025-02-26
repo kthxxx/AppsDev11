@@ -9,13 +9,23 @@ namespace GroceryDiscountApp
     internal class Products
     {
         private List<Product> productList;
-        public Products()
+        private static Products? instance = null;
+        private Products()
         {
             productList = new List<Product>();
 
             if (productList is null)
             {
                 throw new ArgumentNullException("Failed to instantiate list");
+            }
+        }
+
+        public static Products Instance {
+            get {
+                if (instance == null) {
+                    instance = new Products();
+                }
+                return instance;
             }
         }
 
@@ -26,10 +36,15 @@ namespace GroceryDiscountApp
                 throw new ArgumentNullException("Failed to instantiate List");
             }
 
-            Product product = new Product(name, price, quantity);
+            Product? p;
 
-            productList.Add(product);
-            return true;
+            if ((p = GetProductDetails(name)) != null) {
+                p.Quantity += quantity;
+            } else {
+                p = new Product(name, price, quantity);
+                productList.Add(p);
+            }
+                return true;
         }
 
         public bool RemoveProduct(string name)
@@ -108,15 +123,15 @@ namespace GroceryDiscountApp
 
             if (totalPrice > 100 && totalPrice <= 200)
             {
-                discountedPrice = totalPrice - (totalPrice / BASE_DISCOUNT);
+                discountedPrice = totalPrice - (totalPrice * BASE_DISCOUNT);
             }
             else if (totalPrice > 200 && totalPrice <= 500)
             {
-                discountedPrice = totalPrice - (totalPrice / (BASE_DISCOUNT + 0.05));
+                discountedPrice = totalPrice - (totalPrice * (BASE_DISCOUNT + 0.05));
             }
             else if (totalPrice > 500)
             {
-                discountedPrice = totalPrice - (totalPrice / (BASE_DISCOUNT + 0.1));
+                discountedPrice = totalPrice - (totalPrice * (BASE_DISCOUNT + 0.1));
             }
             else
             {

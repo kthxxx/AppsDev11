@@ -10,11 +10,15 @@ using System.Windows.Forms;
 
 namespace GroceryDiscountApp.components
 {
-    public partial class Onion : UserControl
-    {
-        public Onion()
-        {
+    public partial class Onion : UserControl {
+        public Onion() {
             InitializeComponent();
+        }
+
+        private void OnionClicked(object sender, EventArgs e) {
+            Products productList = Products.Instance;
+
+            productList.AddProduct("Onion", 120, 1);
         }
     }
 }

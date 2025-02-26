@@ -26,8 +26,7 @@
         /// Required method for Designer support - do not modify 
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
-        {
+        private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Breast));
             label2 = new Label();
             label1 = new Label();
@@ -38,46 +37,52 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Helvetica", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = SystemColors.Control;
-            label2.Location = new Point(3, 164);
+            label2.Location = new Point(3, 219);
             label2.Name = "label2";
-            label2.Size = new Size(105, 19);
+            label2.Size = new Size(128, 24);
             label2.TabIndex = 38;
             label2.Text = "190₱ per /kg";
+            label2.Click += BreastClicked;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
-            label1.Font = new Font("Helvetica", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.Control;
-            label1.Location = new Point(0, 135);
+            label1.Location = new Point(0, 180);
             label1.Name = "label1";
-            label1.Size = new Size(131, 19);
+            label1.Size = new Size(154, 24);
             label1.TabIndex = 37;
             label1.Text = "Chicken Breast";
+            label1.Click += BreastClicked;
             // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(0, 5);
+            pictureBox1.Location = new Point(0, 7);
+            pictureBox1.Margin = new Padding(3, 4, 3, 4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(157, 127);
+            pictureBox1.Size = new Size(179, 169);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 36;
             pictureBox1.TabStop = false;
+            pictureBox1.Click += BreastClicked;
             // 
             // Breast
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(23, 162, 184);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "Breast";
-            Size = new Size(157, 189);
+            Size = new Size(179, 252);
+            Click += BreastClicked;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();

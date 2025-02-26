@@ -10,16 +10,15 @@ using System.Windows.Forms;
 
 namespace GroceryDiscountApp.components
 {
-    public partial class Carrots : UserControl
-    {
-        public Carrots()
-        {
+    public partial class Carrots : UserControl {
+        public Carrots() {
             InitializeComponent();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
+        private void CarrotsClicked(object sender, EventArgs e) {
+            Products productList = Products.Instance;
 
+            productList.AddProduct("Carrots", 100, 1);
         }
     }
 }

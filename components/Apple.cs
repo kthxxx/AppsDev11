@@ -10,16 +10,15 @@ using System.Windows.Forms;
 
 namespace GroceryDiscountApp.components
 {
-    public partial class Apple : UserControl
-    {
-        public Apple()
-        {
+    public partial class Apple : UserControl {
+        public Apple() {
             InitializeComponent();
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
+        private void AppleClicked(object sender, EventArgs e) {
+            Products productList = Products.Instance;
 
+            productList.AddProduct("Apple", 95, 1);
         }
     }
 }

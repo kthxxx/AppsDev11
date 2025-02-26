@@ -10,11 +10,15 @@ using System.Windows.Forms;
 
 namespace GroceryDiscountApp.components
 {
-    public partial class Breast : UserControl
-    {
-        public Breast()
-        {
+    public partial class Breast : UserControl {
+        public Breast() {
             InitializeComponent();
+        }
+
+        private void BreastClicked(object sender, EventArgs e) {
+            Products productList = Products.Instance;
+
+            productList.AddProduct("Chicken Breast", 190, 1);
         }
     }
 }
