@@ -1,6 +1,6 @@
 ﻿namespace GroceryDiscountApp
 {
-    partial class MainForm
+    partial class MainFormd
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,11 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainFormd));
             panel1 = new Panel();
+            pictureBox1 = new PictureBox();
             textBox1 = new TextBox();
-            button1 = new Button();
+            BT_Sell = new Button();
             panel2 = new Panel();
             panel3 = new Panel();
+            Name = new TextBox();
             panel5 = new Panel();
             panel6 = new Panel();
             AllTotal = new TextBox();
@@ -53,44 +56,35 @@
             BT_Meat = new Button();
             BT_Dairy = new Button();
             BT_All = new Button();
-            dataGridView1 = new DataGridView();
-            flowLayoutPanel1 = new FlowLayoutPanel();
-            apple1 = new components.Apple();
-            avocado1 = new components.Avocado();
-            banana1 = new components.Banana();
-            breast1 = new components.Breast();
-            carrots1 = new components.Carrots();
-            chickenwings1 = new components.Chickenwings();
-            cucumber1 = new components.Cucumber();
-            eggplant1 = new components.Eggplant();
-            mango1 = new components.Mango();
-            onion1 = new components.Onion();
-            orange1 = new components.Orange();
-            pineapple1 = new components.Pineapple();
-            ribs1 = new components.Ribs();
-            tomato1 = new components.Tomato();
-            userControl11 = new components.UserControl1();
-            watermelon1 = new components.Watermelon();
-            _1WholeChicken1 = new components._1WholeChicken();
-            vegetables1 = new components.Vegetables();
+            productDisplayPanel = new Panel();
             panel1.SuspendLayout();
-            panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panel3.SuspendLayout();
             panel5.SuspendLayout();
             panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            flowLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(52, 58, 64);
+            panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(textBox1);
-            panel1.Controls.Add(button1);
+            panel1.Controls.Add(BT_Sell);
             panel1.Controls.Add(panel2);
             panel1.Location = new Point(1, -5);
             panel1.Name = "panel1";
             panel1.Size = new Size(89, 673);
             panel1.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(13, 14);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(60, 54);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 6;
+            pictureBox1.TabStop = false;
             // 
             // textBox1
             // 
@@ -100,23 +94,23 @@
             textBox1.ForeColor = Color.FromArgb(248, 249, 251);
             textBox1.Location = new Point(18, 130);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(42, 29);
+            textBox1.Size = new Size(55, 29);
             textBox1.TabIndex = 5;
             textBox1.Text = "Sell";
             // 
-            // button1
+            // BT_Sell
             // 
-            button1.AllowDrop = true;
-            button1.BackColor = Color.FromArgb(52, 58, 64);
-            button1.BackgroundImage = Properties.Resources.shopping;
-            button1.BackgroundImageLayout = ImageLayout.Stretch;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Location = new Point(11, 78);
-            button1.Name = "button1";
-            button1.Size = new Size(52, 53);
-            button1.TabIndex = 4;
-            button1.UseVisualStyleBackColor = false;
+            BT_Sell.AllowDrop = true;
+            BT_Sell.BackColor = Color.FromArgb(52, 58, 64);
+            BT_Sell.BackgroundImage = Properties.Resources.shopping;
+            BT_Sell.BackgroundImageLayout = ImageLayout.Stretch;
+            BT_Sell.FlatAppearance.BorderSize = 0;
+            BT_Sell.FlatStyle = FlatStyle.Flat;
+            BT_Sell.Location = new Point(11, 78);
+            BT_Sell.Name = "BT_Sell";
+            BT_Sell.Size = new Size(52, 53);
+            BT_Sell.TabIndex = 4;
+            BT_Sell.UseVisualStyleBackColor = false;
             // 
             // panel2
             // 
@@ -129,10 +123,23 @@
             // panel3
             // 
             panel3.BackColor = SystemColors.ButtonHighlight;
+            panel3.Controls.Add(Name);
             panel3.Location = new Point(90, 1);
             panel3.Name = "panel3";
             panel3.Size = new Size(1197, 66);
             panel3.TabIndex = 1;
+            panel3.Paint += panel3_Paint;
+            // 
+            // Name
+            // 
+            Name.BorderStyle = BorderStyle.None;
+            Name.Font = new Font("Ravie", 24F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            Name.ForeColor = Color.FromArgb(23, 162, 185);
+            Name.Location = new Point(6, 11);
+            Name.Name = "Name";
+            Name.Size = new Size(558, 43);
+            Name.TabIndex = 0;
+            Name.Text = "7 Ebelen";
             // 
             // panel5
             // 
@@ -306,24 +313,25 @@
             BT_Calculate.TabIndex = 0;
             BT_Calculate.Text = "Checkout";
             BT_Calculate.UseVisualStyleBackColor = false;
+            BT_Calculate.Click += BT_Calculate_Click;
             // 
             // BT_Vegi
             // 
             BT_Vegi.Font = new Font("Helvetica", 10F, FontStyle.Bold);
             BT_Vegi.ForeColor = Color.FromArgb(23, 162, 184);
-            BT_Vegi.Location = new Point(96, 274);
+            BT_Vegi.Location = new Point(105, 142);
             BT_Vegi.Name = "BT_Vegi";
             BT_Vegi.Size = new Size(111, 48);
             BT_Vegi.TabIndex = 4;
             BT_Vegi.Text = "Vegetables";
             BT_Vegi.UseVisualStyleBackColor = true;
-            BT_Vegi.Click += button2_Click;
+            BT_Vegi.Click += BT_Vegi_Click_1;
             // 
             // BT_Fruit
             // 
             BT_Fruit.Font = new Font("Helvetica", 14.25F, FontStyle.Bold);
             BT_Fruit.ForeColor = Color.FromArgb(23, 162, 184);
-            BT_Fruit.Location = new Point(96, 328);
+            BT_Fruit.Location = new Point(105, 196);
             BT_Fruit.Name = "BT_Fruit";
             BT_Fruit.Size = new Size(111, 48);
             BT_Fruit.TabIndex = 5;
@@ -335,13 +343,13 @@
             // 
             BT_Meat.Font = new Font("Helvetica", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BT_Meat.ForeColor = Color.FromArgb(23, 162, 184);
-            BT_Meat.Location = new Point(96, 436);
+            BT_Meat.Location = new Point(105, 304);
             BT_Meat.Name = "BT_Meat";
             BT_Meat.Size = new Size(111, 48);
             BT_Meat.TabIndex = 7;
             BT_Meat.Text = "Meat";
             BT_Meat.UseVisualStyleBackColor = true;
-
+            BT_Meat.Click += BT_Meat_Click;
             // 
             // BT_Dairy
             // 
@@ -366,192 +374,22 @@
             BT_All.TabIndex = 8;
             BT_All.Text = "ALL";
             BT_All.UseVisualStyleBackColor = false;
+            BT_All.Click += BT_All_Click;
             // 
-            // dataGridView1
+            // productDisplayPanel
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(235, 220);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(540, 448);
-            dataGridView1.TabIndex = 1;
+            productDisplayPanel.AutoScroll = true;
+            productDisplayPanel.Location = new Point(236, 83);
+            productDisplayPanel.Name = "productDisplayPanel";
+            productDisplayPanel.Size = new Size(540, 621);
+            productDisplayPanel.TabIndex = 9;
             // 
-            // flowLayoutPanel1
+            // MainFormd
             // 
-            flowLayoutPanel1.AutoScroll = true;
-            flowLayoutPanel1.Controls.Add(apple1);
-            flowLayoutPanel1.Controls.Add(avocado1);
-            flowLayoutPanel1.Controls.Add(banana1);
-            flowLayoutPanel1.Controls.Add(breast1);
-            flowLayoutPanel1.Controls.Add(carrots1);
-            flowLayoutPanel1.Controls.Add(chickenwings1);
-            flowLayoutPanel1.Controls.Add(cucumber1);
-            flowLayoutPanel1.Controls.Add(eggplant1);
-            flowLayoutPanel1.Controls.Add(mango1);
-            flowLayoutPanel1.Controls.Add(onion1);
-            flowLayoutPanel1.Controls.Add(orange1);
-            flowLayoutPanel1.Controls.Add(pineapple1);
-            flowLayoutPanel1.Controls.Add(ribs1);
-            flowLayoutPanel1.Controls.Add(tomato1);
-            flowLayoutPanel1.Controls.Add(userControl11);
-            flowLayoutPanel1.Controls.Add(watermelon1);
-            flowLayoutPanel1.Controls.Add(_1WholeChicken1);
-            flowLayoutPanel1.Controls.Add(vegetables1);
-            flowLayoutPanel1.Location = new Point(235, 219);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(540, 470);
-            flowLayoutPanel1.TabIndex = 9;
-            // 
-            // apple1
-            // 
-            apple1.BackColor = Color.FromArgb(23, 162, 184);
-            apple1.Location = new Point(3, 3);
-            apple1.Name = "apple1";
-            apple1.Size = new Size(157, 189);
-            apple1.TabIndex = 0;
-            // 
-            // avocado1
-            // 
-            avocado1.BackColor = Color.FromArgb(23, 162, 184);
-            avocado1.Location = new Point(166, 3);
-            avocado1.Name = "avocado1";
-            avocado1.Size = new Size(157, 189);
-            avocado1.TabIndex = 1;
-            // 
-            // banana1
-            // 
-            banana1.BackColor = Color.FromArgb(23, 162, 184);
-            banana1.Location = new Point(329, 3);
-            banana1.Name = "banana1";
-            banana1.Size = new Size(157, 189);
-            banana1.TabIndex = 2;
-            // 
-            // breast1
-            // 
-            breast1.BackColor = Color.FromArgb(23, 162, 184);
-            breast1.Location = new Point(3, 198);
-            breast1.Name = "breast1";
-            breast1.Size = new Size(157, 189);
-            breast1.TabIndex = 3;
-            // 
-            // carrots1
-            // 
-            carrots1.BackColor = Color.FromArgb(23, 162, 184);
-            carrots1.Location = new Point(166, 198);
-            carrots1.Name = "carrots1";
-            carrots1.Size = new Size(157, 189);
-            carrots1.TabIndex = 4;
-            // 
-            // chickenwings1
-            // 
-            chickenwings1.BackColor = Color.FromArgb(23, 162, 184);
-            chickenwings1.Location = new Point(329, 198);
-            chickenwings1.Name = "chickenwings1";
-            chickenwings1.Size = new Size(157, 189);
-            chickenwings1.TabIndex = 5;
-            // 
-            // cucumber1
-            // 
-            cucumber1.BackColor = Color.FromArgb(23, 162, 184);
-            cucumber1.Location = new Point(3, 393);
-            cucumber1.Name = "cucumber1";
-            cucumber1.Size = new Size(157, 189);
-            cucumber1.TabIndex = 6;
-            // 
-            // eggplant1
-            // 
-            eggplant1.BackColor = Color.FromArgb(23, 162, 184);
-            eggplant1.Location = new Point(166, 393);
-            eggplant1.Name = "eggplant1";
-            eggplant1.Size = new Size(157, 189);
-            eggplant1.TabIndex = 7;
-            // 
-            // mango1
-            // 
-            mango1.BackColor = Color.FromArgb(23, 162, 184);
-            mango1.Location = new Point(329, 393);
-            mango1.Name = "mango1";
-            mango1.Size = new Size(157, 189);
-            mango1.TabIndex = 8;
-            // 
-            // onion1
-            // 
-            onion1.BackColor = Color.FromArgb(23, 162, 184);
-            onion1.Location = new Point(3, 588);
-            onion1.Name = "onion1";
-            onion1.Size = new Size(157, 189);
-            onion1.TabIndex = 9;
-            // 
-            // orange1
-            // 
-            orange1.BackColor = Color.FromArgb(23, 162, 184);
-            orange1.Location = new Point(166, 588);
-            orange1.Name = "orange1";
-            orange1.Size = new Size(157, 189);
-            orange1.TabIndex = 10;
-            // 
-            // pineapple1
-            // 
-            pineapple1.BackColor = Color.FromArgb(23, 162, 184);
-            pineapple1.Location = new Point(329, 588);
-            pineapple1.Name = "pineapple1";
-            pineapple1.Size = new Size(157, 189);
-            pineapple1.TabIndex = 11;
-            // 
-            // ribs1
-            // 
-            ribs1.BackColor = Color.FromArgb(23, 162, 184);
-            ribs1.Location = new Point(3, 783);
-            ribs1.Name = "ribs1";
-            ribs1.Size = new Size(157, 189);
-            ribs1.TabIndex = 12;
-            // 
-            // tomato1
-            // 
-            tomato1.BackColor = Color.FromArgb(23, 162, 184);
-            tomato1.Location = new Point(166, 783);
-            tomato1.Name = "tomato1";
-            tomato1.Size = new Size(157, 189);
-            tomato1.TabIndex = 13;
-            // 
-            // userControl11
-            // 
-            userControl11.Location = new Point(329, 783);
-            userControl11.Name = "userControl11";
-            userControl11.Size = new Size(150, 150);
-            userControl11.TabIndex = 14;
-            // 
-            // watermelon1
-            // 
-            watermelon1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            watermelon1.BackColor = Color.FromArgb(23, 162, 184);
-            watermelon1.Location = new Point(3, 978);
-            watermelon1.Name = "watermelon1";
-            watermelon1.Size = new Size(157, 189);
-            watermelon1.TabIndex = 15;
-            // 
-            // _1WholeChicken1
-            // 
-            _1WholeChicken1.AutoScroll = true;
-            _1WholeChicken1.BackColor = Color.FromArgb(23, 162, 184);
-            _1WholeChicken1.Location = new Point(166, 978);
-            _1WholeChicken1.Name = "_1WholeChicken1";
-            _1WholeChicken1.Size = new Size(157, 189);
-            _1WholeChicken1.TabIndex = 16;
-            // 
-            // vegetables1
-            // 
-            vegetables1.Location = new Point(3, 1173);
-            vegetables1.Name = "vegetables1";
-            vegetables1.Size = new Size(540, 470);
-            vegetables1.TabIndex = 17;
-            // 
-            // MainForm
-            // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleDimensions = new SizeF(96F, 96F);
+            AutoScaleMode = AutoScaleMode.Dpi;
             ClientSize = new Size(1284, 661);
-            Controls.Add(flowLayoutPanel1);
-            Controls.Add(dataGridView1);
+            Controls.Add(productDisplayPanel);
             Controls.Add(BT_All);
             Controls.Add(BT_Meat);
             Controls.Add(BT_Dairy);
@@ -561,17 +399,17 @@
             Controls.Add(panel3);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
-            Name = "MainForm";
+            Name.Text = "7 Ebelen";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Grocery Store";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
             panel5.ResumeLayout(false);
             panel6.ResumeLayout(false);
             panel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            flowLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -581,7 +419,7 @@
         private Panel panel2;
         private Panel panel3;
         private Panel panel5;
-        private Button button1;
+        private Button BT_Sell;
         private TextBox textBox1;
         private Button BT_Vegi;
         private Button BT_Fruit;
@@ -602,25 +440,8 @@
         private Label label1;
         private TextBox AllTotal;
         private Label LB_Total;
-        private DataGridView dataGridView1;
-        private FlowLayoutPanel flowLayoutPanel1;
-        private components.Apple apple1;
-        private components.Avocado avocado1;
-        private components.Banana banana1;
-        private components.Breast breast1;
-        private components.Carrots carrots1;
-        private components.Chickenwings chickenwings1;
-        private components.Cucumber cucumber1;
-        private components.Eggplant eggplant1;
-        private components.Mango mango1;
-        private components.Onion onion1;
-        private components.Orange orange1;
-        private components.Pineapple pineapple1;
-        private components.Ribs ribs1;
-        private components.Tomato tomato1;
-        private components.UserControl1 userControl11;
-        private components.Watermelon watermelon1;
-        private components._1WholeChicken _1WholeChicken1;
-        private components.Vegetables vegetables1;
+        private new TextBox Name;
+        private PictureBox pictureBox1;
+        private Panel productDisplayPanel;
     }
 }

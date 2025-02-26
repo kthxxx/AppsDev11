@@ -60,7 +60,7 @@
             flowLayoutPanel1.Controls.Add(apple2);
             flowLayoutPanel1.Location = new Point(0, 0);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(540, 470);
+            flowLayoutPanel1.Size = new Size(540, 551);
             flowLayoutPanel1.TabIndex = 0;
             // 
             // apple1
@@ -167,7 +167,7 @@
             AutoScroll = true;
             Controls.Add(flowLayoutPanel1);
             Name = "Fruits";
-            Size = new Size(540, 470);
+            Size = new Size(540, 566);
             flowLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
         }

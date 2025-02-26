@@ -7,6 +7,9 @@
     <Compile Update="components\1WholeChicken.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="components\AllProduct.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="components\Apple.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -52,6 +55,9 @@
     <Compile Update="components\Pineapple.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="components\Receipt.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="components\Ribs.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -65,6 +71,9 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Form2.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
