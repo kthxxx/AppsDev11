@@ -26,8 +26,7 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
-        {
+        private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             label1 = new Label();
             label2 = new Label();
@@ -43,7 +42,7 @@
             label1.Location = new Point(486, 87);
             label1.Margin = new Padding(8, 0, 8, 0);
             label1.Name = "label1";
-            label1.Size = new Size(78, 23);
+            label1.Size = new Size(96, 28);
             label1.TabIndex = 0;
             label1.Text = "Receipt";
             // 
@@ -53,7 +52,7 @@
             label2.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.Location = new Point(145, 14);
             label2.Name = "label2";
-            label2.Size = new Size(125, 37);
+            label2.Size = new Size(155, 46);
             label2.TabIndex = 1;
             label2.Text = "7 Ebelen";
             // 
@@ -73,14 +72,14 @@
             label3.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.Location = new Point(17, 51);
             label3.Name = "label3";
-            label3.Size = new Size(413, 30);
+            label3.Size = new Size(532, 37);
             label3.TabIndex = 3;
             label3.Text = "- - - - - - - - - - - - - - - - - - - - - - - - - - - - -";
             label3.Click += label3_Click;
             // 
             // Form2
             // 
-            AutoScaleDimensions = new SizeF(18F, 45F);
+            AutoScaleDimensions = new SizeF(22F, 54F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(447, 588);
             Controls.Add(label3);
@@ -91,6 +90,7 @@
             Margin = new Padding(8, 9, 8, 9);
             Name = "Form2";
             Text = "Form2";
+            Load += Form2_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();

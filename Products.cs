@@ -19,7 +19,11 @@ namespace GroceryDiscountApp
                 throw new ArgumentNullException("Failed to instantiate list");
             }
         }
-
+        public List<Product> ProductList {
+            get {
+                return productList;
+            }
+        }
         public static Products Instance {
             get {
                 if (instance == null) {
@@ -139,6 +143,16 @@ namespace GroceryDiscountApp
             }
 
             return discountedPrice;
+        }
+        public string[] ToStringArray() {
+            List<string> strList = new List<string>();
+
+            foreach(Product p in productList) {
+                string str = $"{p.Name}\t{p.Quantity}\t{p.Price * p.Quantity}";
+                strList.Add(str);
+            }
+
+            return strList.ToArray();
         }
     }
 }
