@@ -44,6 +44,7 @@
             label2.Size = new Size(128, 24);
             label2.TabIndex = 41;
             label2.Text = "190₱ per /kg";
+            label2.Click += ChickenWingsClicked;
             // 
             // label1
             // 
@@ -56,6 +57,7 @@
             label1.Size = new Size(151, 24);
             label1.TabIndex = 40;
             label1.Text = "Chicken Wings";
+            label1.Click += ChickenWingsClicked;
             // 
             // pictureBox1
             // 
@@ -67,6 +69,7 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 39;
             pictureBox1.TabStop = false;
+            pictureBox1.Click += ChickenWingsClicked;
             // 
             // Chickenwings
             // 

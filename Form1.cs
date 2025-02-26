@@ -125,11 +125,12 @@ namespace GroceryDiscountApp
 
         private void BT_Calculate_Click(object sender, EventArgs e)
         {
+            Products productList = Products.Instance;
             Form2 form2 = new Form2();
 
             form2.Show();
 
-
+            MessageBox.Show($"{productList.GetDiscountedPrice()}");
 
         }
     }

@@ -44,6 +44,7 @@
             label2.Size = new Size(128, 24);
             label2.TabIndex = 8;
             label2.Text = "100₱ per /kg";
+            label2.Click += CarrotsClicked;
             // 
             // label1
             // 
@@ -56,6 +57,7 @@
             label1.Size = new Size(81, 24);
             label1.TabIndex = 7;
             label1.Text = "Carrots";
+            label1.Click += CarrotsClicked;
             // 
             // pictureBox1
             // 
@@ -67,7 +69,7 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 6;
             pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click;
+            pictureBox1.Click += CarrotsClicked;
             // 
             // Carrots
             // 

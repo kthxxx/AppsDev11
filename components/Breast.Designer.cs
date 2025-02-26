@@ -82,6 +82,7 @@
             Margin = new Padding(3, 4, 3, 4);
             Name = "Breast";
             Size = new Size(179, 252);
+            Click += BreastClicked;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();

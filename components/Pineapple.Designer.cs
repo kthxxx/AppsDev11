@@ -82,6 +82,7 @@
             Margin = new Padding(3, 4, 3, 4);
             Name = "Pineapple";
             Size = new Size(179, 252);
+            Click += PineappleClicked;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();

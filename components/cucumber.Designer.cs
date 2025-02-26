@@ -44,6 +44,7 @@
             label2.Size = new Size(117, 24);
             label2.TabIndex = 14;
             label2.Text = "80₱ per /kg";
+            label2.Click += CucumberClicked;
             // 
             // label1
             // 
@@ -56,6 +57,7 @@
             label1.Size = new Size(107, 24);
             label1.TabIndex = 13;
             label1.Text = "Cucumber";
+            label1.Click += CucumberClicked;
             // 
             // pictureBox1
             // 
@@ -67,6 +69,7 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 12;
             pictureBox1.TabStop = false;
+            pictureBox1.Click += CucumberClicked;
             // 
             // Cucumber
             // 

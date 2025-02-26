@@ -42,6 +42,7 @@ namespace GroceryDiscountApp
                 p.Quantity += quantity;
             } else {
                 p = new Product(name, price, quantity);
+                productList.Add(p);
             }
                 return true;
         }
@@ -122,15 +123,15 @@ namespace GroceryDiscountApp
 
             if (totalPrice > 100 && totalPrice <= 200)
             {
-                discountedPrice = totalPrice - (totalPrice / BASE_DISCOUNT);
+                discountedPrice = totalPrice - (totalPrice * BASE_DISCOUNT);
             }
             else if (totalPrice > 200 && totalPrice <= 500)
             {
-                discountedPrice = totalPrice - (totalPrice / (BASE_DISCOUNT + 0.05));
+                discountedPrice = totalPrice - (totalPrice * (BASE_DISCOUNT + 0.05));
             }
             else if (totalPrice > 500)
             {
-                discountedPrice = totalPrice - (totalPrice / (BASE_DISCOUNT + 0.1));
+                discountedPrice = totalPrice - (totalPrice * (BASE_DISCOUNT + 0.1));
             }
             else
             {

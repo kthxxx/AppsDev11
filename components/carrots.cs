@@ -15,10 +15,6 @@ namespace GroceryDiscountApp.components
             InitializeComponent();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e) {
-
-        }
-
         private void CarrotsClicked(object sender, EventArgs e) {
             Products productList = Products.Instance;
 
