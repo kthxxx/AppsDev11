@@ -54,6 +54,10 @@
             _1WholeChicken1.Name = "_1WholeChicken1";
             _1WholeChicken1.Size = new Size(157, 189);
             _1WholeChicken1.TabIndex = 0;
+            _1WholeChicken1.Load += _1WholeChicken1_Load;
+            _1WholeChicken1.Click += WholeChickenClicked;
+            this._1WholeChicken1.Click += new System.EventHandler(this.WholeChickenClicked);
+
             // 
             // chickenwings1
             // 
@@ -79,6 +83,7 @@
             ribs1.Name = "ribs1";
             ribs1.Size = new Size(157, 189);
             ribs1.TabIndex = 3;
+            ribs1.Load += ribs1_Load;
             // 
             // Meat
             // 

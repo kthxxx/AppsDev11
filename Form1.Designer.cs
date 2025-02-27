@@ -35,8 +35,13 @@
             BT_Sell = new Button();
             panel2 = new Panel();
             panel3 = new Panel();
+            productInCart1 = new ProductInCart();
             Name = new TextBox();
-            panel5 = new Panel();
+            BT_Vegi = new Button();
+            BT_Fruit = new Button();
+            BT_Meat = new Button();
+            BT_Dairy = new Button();
+            BT_All = new Button();
             panel6 = new Panel();
             AllTotal = new TextBox();
             LB_Total = new Label();
@@ -51,17 +56,16 @@
             panel7 = new Panel();
             BT_Remove = new Button();
             BT_Calculate = new Button();
-            BT_Vegi = new Button();
-            BT_Fruit = new Button();
-            BT_Meat = new Button();
-            BT_Dairy = new Button();
-            BT_All = new Button();
-            productDisplayPanel = new Panel();
+            Panel0 = new Panel();
+            CartPanel = new Panel();
+            productDisplayPanel = new FlowLayoutPanel();
+            allProduct1 = new components.AllProduct();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel3.SuspendLayout();
-            panel5.SuspendLayout();
             panel6.SuspendLayout();
+            Panel0.SuspendLayout();
+            productDisplayPanel.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -85,6 +89,7 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 6;
             pictureBox1.TabStop = false;
+            pictureBox1.Click += LogoClicked;
             // 
             // textBox1
             // 
@@ -123,12 +128,20 @@
             // panel3
             // 
             panel3.BackColor = SystemColors.ButtonHighlight;
+            panel3.Controls.Add(productInCart1);
             panel3.Controls.Add(Name);
             panel3.Location = new Point(90, 1);
             panel3.Name = "panel3";
             panel3.Size = new Size(1197, 66);
             panel3.TabIndex = 1;
             panel3.Paint += panel3_Paint;
+            // 
+            // productInCart1
+            // 
+            productInCart1.Location = new Point(585, 5);
+            productInCart1.Name = "productInCart1";
+            productInCart1.Size = new Size(454, 55);
+            productInCart1.TabIndex = 0;
             // 
             // Name
             // 
@@ -139,17 +152,68 @@
             Name.Name = "Name";
             Name.Size = new Size(558, 43);
             Name.TabIndex = 0;
-            Name.Text = "7 Ebelen";
+            Name.Text = "MainFormd";
             // 
-            // panel5
+            // BT_Vegi
             // 
-            panel5.BackColor = Color.FromArgb(52, 58, 64);
-            panel5.Controls.Add(panel6);
-            panel5.ForeColor = Color.White;
-            panel5.Location = new Point(795, 67);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(492, 600);
-            panel5.TabIndex = 3;
+            BT_Vegi.Font = new Font("Helvetica", 10F, FontStyle.Bold);
+            BT_Vegi.ForeColor = Color.FromArgb(23, 162, 184);
+            BT_Vegi.Location = new Point(105, 142);
+            BT_Vegi.Name = "BT_Vegi";
+            BT_Vegi.Size = new Size(111, 48);
+            BT_Vegi.TabIndex = 4;
+            BT_Vegi.Text = "Vegetables";
+            BT_Vegi.UseVisualStyleBackColor = true;
+            BT_Vegi.Click += BT_Vegi_Click_1;
+            // 
+            // BT_Fruit
+            // 
+            BT_Fruit.Font = new Font("Helvetica", 14.25F, FontStyle.Bold);
+            BT_Fruit.ForeColor = Color.FromArgb(23, 162, 184);
+            BT_Fruit.Location = new Point(105, 196);
+            BT_Fruit.Name = "BT_Fruit";
+            BT_Fruit.Size = new Size(111, 48);
+            BT_Fruit.TabIndex = 5;
+            BT_Fruit.Text = "Fruits";
+            BT_Fruit.UseVisualStyleBackColor = true;
+            BT_Fruit.Click += BT_Fruit_Click;
+            // 
+            // BT_Meat
+            // 
+            BT_Meat.Font = new Font("Helvetica", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            BT_Meat.ForeColor = Color.FromArgb(23, 162, 184);
+            BT_Meat.Location = new Point(105, 304);
+            BT_Meat.Name = "BT_Meat";
+            BT_Meat.Size = new Size(111, 48);
+            BT_Meat.TabIndex = 7;
+            BT_Meat.Text = "Meat";
+            BT_Meat.UseVisualStyleBackColor = true;
+            BT_Meat.Click += BT_Meat_Click;
+            // 
+            // BT_Dairy
+            // 
+            BT_Dairy.Font = new Font("Helvetica", 14.25F, FontStyle.Bold);
+            BT_Dairy.ForeColor = Color.FromArgb(23, 162, 185);
+            BT_Dairy.Location = new Point(105, 250);
+            BT_Dairy.Name = "BT_Dairy";
+            BT_Dairy.Size = new Size(111, 48);
+            BT_Dairy.TabIndex = 6;
+            BT_Dairy.Text = "Dairy";
+            BT_Dairy.UseVisualStyleBackColor = true;
+            BT_Dairy.Click += BT_Dairy_Click;
+            // 
+            // BT_All
+            // 
+            BT_All.BackColor = Color.White;
+            BT_All.Font = new Font("Helvetica", 14.25F, FontStyle.Bold);
+            BT_All.ForeColor = Color.FromArgb(23, 162, 184);
+            BT_All.Location = new Point(105, 88);
+            BT_All.Name = "BT_All";
+            BT_All.Size = new Size(111, 48);
+            BT_All.TabIndex = 8;
+            BT_All.Text = "ALL";
+            BT_All.UseVisualStyleBackColor = false;
+            BT_All.Click += BT_All_Click;
             // 
             // panel6
             // 
@@ -315,74 +379,40 @@
             BT_Calculate.UseVisualStyleBackColor = false;
             BT_Calculate.Click += BT_Calculate_Click;
             // 
-            // BT_Vegi
+            // Panel0
             // 
-            BT_Vegi.Font = new Font("Helvetica", 10F, FontStyle.Bold);
-            BT_Vegi.ForeColor = Color.FromArgb(23, 162, 184);
-            BT_Vegi.Location = new Point(105, 142);
-            BT_Vegi.Name = "BT_Vegi";
-            BT_Vegi.Size = new Size(111, 48);
-            BT_Vegi.TabIndex = 4;
-            BT_Vegi.Text = "Vegetables";
-            BT_Vegi.UseVisualStyleBackColor = true;
-            BT_Vegi.Click += BT_Vegi_Click_1;
+            Panel0.AutoScroll = true;
+            Panel0.BackColor = Color.FromArgb(52, 58, 64);
+            Panel0.Controls.Add(CartPanel);
+            Panel0.Controls.Add(panel6);
+            Panel0.ForeColor = Color.White;
+            Panel0.Location = new Point(795, 67);
+            Panel0.Name = "Panel0";
+            Panel0.Size = new Size(492, 600);
+            Panel0.TabIndex = 3;
             // 
-            // BT_Fruit
+            // CartPanel
             // 
-            BT_Fruit.Font = new Font("Helvetica", 14.25F, FontStyle.Bold);
-            BT_Fruit.ForeColor = Color.FromArgb(23, 162, 184);
-            BT_Fruit.Location = new Point(105, 196);
-            BT_Fruit.Name = "BT_Fruit";
-            BT_Fruit.Size = new Size(111, 48);
-            BT_Fruit.TabIndex = 5;
-            BT_Fruit.Text = "Fruits";
-            BT_Fruit.UseVisualStyleBackColor = true;
-            BT_Fruit.Click += BT_Fruit_Click;
-            // 
-            // BT_Meat
-            // 
-            BT_Meat.Font = new Font("Helvetica", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            BT_Meat.ForeColor = Color.FromArgb(23, 162, 184);
-            BT_Meat.Location = new Point(105, 304);
-            BT_Meat.Name = "BT_Meat";
-            BT_Meat.Size = new Size(111, 48);
-            BT_Meat.TabIndex = 7;
-            BT_Meat.Text = "Meat";
-            BT_Meat.UseVisualStyleBackColor = true;
-            BT_Meat.Click += BT_Meat_Click;
-            // 
-            // BT_Dairy
-            // 
-            BT_Dairy.Font = new Font("Helvetica", 14.25F, FontStyle.Bold);
-            BT_Dairy.ForeColor = Color.FromArgb(23, 162, 185);
-            BT_Dairy.Location = new Point(105, 250);
-            BT_Dairy.Name = "BT_Dairy";
-            BT_Dairy.Size = new Size(111, 48);
-            BT_Dairy.TabIndex = 6;
-            BT_Dairy.Text = "Dairy";
-            BT_Dairy.UseVisualStyleBackColor = true;
-            BT_Dairy.Click += BT_Dairy_Click;
-            // 
-            // BT_All
-            // 
-            BT_All.BackColor = Color.White;
-            BT_All.Font = new Font("Helvetica", 14.25F, FontStyle.Bold);
-            BT_All.ForeColor = Color.FromArgb(23, 162, 184);
-            BT_All.Location = new Point(105, 88);
-            BT_All.Name = "BT_All";
-            BT_All.Size = new Size(111, 48);
-            BT_All.TabIndex = 8;
-            BT_All.Text = "ALL";
-            BT_All.UseVisualStyleBackColor = false;
-            BT_All.Click += BT_All_Click;
+            CartPanel.Location = new Point(6, 6);
+            CartPanel.Name = "CartPanel";
+            CartPanel.Size = new Size(483, 385);
+            CartPanel.TabIndex = 0;
             // 
             // productDisplayPanel
             // 
-            productDisplayPanel.AutoScroll = true;
-            productDisplayPanel.Location = new Point(236, 83);
+            productDisplayPanel.Controls.Add(allProduct1);
+            productDisplayPanel.Location = new Point(235, 90);
             productDisplayPanel.Name = "productDisplayPanel";
-            productDisplayPanel.Size = new Size(540, 621);
+            productDisplayPanel.Size = new Size(535, 506);
             productDisplayPanel.TabIndex = 9;
+            // 
+            // allProduct1
+            // 
+            allProduct1.AutoScroll = true;
+            allProduct1.Location = new Point(3, 3);
+            allProduct1.Name = "allProduct1";
+            allProduct1.Size = new Size(540, 566);
+            allProduct1.TabIndex = 0;
             // 
             // MainFormd
             // 
@@ -395,11 +425,11 @@
             Controls.Add(BT_Dairy);
             Controls.Add(BT_Fruit);
             Controls.Add(BT_Vegi);
-            Controls.Add(panel5);
+            Controls.Add(Panel0);
             Controls.Add(panel3);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
-            Name.Text = "7 Ebelen";
+            Name.Text = "MainFormd";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Grocery Store";
             panel1.ResumeLayout(false);
@@ -407,9 +437,10 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
-            panel5.ResumeLayout(false);
             panel6.ResumeLayout(false);
             panel6.PerformLayout();
+            Panel0.ResumeLayout(false);
+            productDisplayPanel.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -418,7 +449,6 @@
         private Panel panel1;
         private Panel panel2;
         private Panel panel3;
-        private Panel panel5;
         private Button BT_Sell;
         private TextBox textBox1;
         private Button BT_Vegi;
@@ -426,22 +456,26 @@
         private Button BT_Meat;
         private Button BT_Dairy;
         private Button BT_All;
-        private Button BT_Calculate;
-        private Button BT_Remove;
-        private Panel panel6;
-        private Panel panel7;
-        private TextBox TX_Subtotal;
-        private TextBox SubTotal;
-        private Label ItemLabel;
-        private TextBox ItemTotal;
-        private TextBox QuantityTotal;
-        private Label LB_Quantity;
-        private TextBox DiscountTotal;
-        private Label label1;
-        private TextBox AllTotal;
-        private Label LB_Total;
         private new TextBox Name;
         private PictureBox pictureBox1;
-        private Panel productDisplayPanel;
+        private ProductInCart productInCart1;
+        private Panel panel6;
+        private TextBox AllTotal;
+        private Label LB_Total;
+        private TextBox DiscountTotal;
+        private Label label1;
+        private TextBox QuantityTotal;
+        private Label LB_Quantity;
+        private TextBox ItemTotal;
+        private Label ItemLabel;
+        private TextBox SubTotal;
+        private TextBox TX_Subtotal;
+        private Panel panel7;
+        private Button BT_Remove;
+        private Button BT_Calculate;
+        private Panel Panel0;
+        private Panel CartPanel;
+        private FlowLayoutPanel productDisplayPanel;
+        private components.AllProduct allProduct1;
     }
 }

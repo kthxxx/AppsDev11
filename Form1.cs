@@ -16,14 +16,14 @@ namespace GroceryDiscountApp
         {
             // Optionally, you can show a default product category on load
             ShowAllProduct();
-        }
+            
 
         private void BT_Meat_Click(object sender, EventArgs e)
         {
             ResetButtonColors();
             BT_Meat.BackColor = ButtonActiveColor;
             BT_Meat.ForeColor = Color.White;
-
+            x
             ShowMeat();
         }
 
@@ -125,12 +125,17 @@ namespace GroceryDiscountApp
 
         private void BT_Calculate_Click(object sender, EventArgs e)
         {
-            Form2 form2 = new Form2();
-           
+            Reciept form2 = new Reciept();
+
             form2.Show();
-            
 
 
+
+        }
+
+        private void LogoClicked(object sender, EventArgs e)
+        {
+            ShowMeat();
         }
     }
 }

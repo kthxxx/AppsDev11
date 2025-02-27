@@ -77,6 +77,7 @@
             apple1.Name = "apple1";
             apple1.Size = new Size(157, 189);
             apple1.TabIndex = 0;
+            apple1.Click += AppleClicked;
             // 
             // avocado1
             // 
