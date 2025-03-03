@@ -65,6 +65,7 @@
             panel3.SuspendLayout();
             panel6.SuspendLayout();
             Panel0.SuspendLayout();
+            CartPanel.SuspendLayout();
             productDisplayPanel.SuspendLayout();
             SuspendLayout();
             // 
@@ -128,7 +129,6 @@
             // panel3
             // 
             panel3.BackColor = SystemColors.ButtonHighlight;
-            panel3.Controls.Add(productInCart1);
             panel3.Controls.Add(Name);
             panel3.Location = new Point(90, 1);
             panel3.Name = "panel3";
@@ -138,7 +138,7 @@
             // 
             // productInCart1
             // 
-            productInCart1.Location = new Point(585, 5);
+            productInCart1.Location = new Point(17, 8);
             productInCart1.Name = "productInCart1";
             productInCart1.Size = new Size(454, 55);
             productInCart1.TabIndex = 0;
@@ -393,6 +393,7 @@
             // 
             // CartPanel
             // 
+            CartPanel.Controls.Add(productInCart1);
             CartPanel.Location = new Point(6, 6);
             CartPanel.Name = "CartPanel";
             CartPanel.Size = new Size(483, 385);
@@ -429,7 +430,7 @@
             Controls.Add(panel3);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
-            Name.Text = "MainFormd";
+            Name = "MainFormd";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Grocery Store";
             panel1.ResumeLayout(false);
@@ -440,6 +441,7 @@
             panel6.ResumeLayout(false);
             panel6.PerformLayout();
             Panel0.ResumeLayout(false);
+            CartPanel.ResumeLayout(false);
             productDisplayPanel.ResumeLayout(false);
             ResumeLayout(false);
         }
