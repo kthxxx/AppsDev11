@@ -16,6 +16,7 @@ namespace GroceryDiscountApp
         {
             // Optionally, you can show a default product category on load
             ShowAllProduct();
+        }
             
 
         private void BT_Meat_Click(object sender, EventArgs e)
@@ -23,7 +24,6 @@ namespace GroceryDiscountApp
             ResetButtonColors();
             BT_Meat.BackColor = ButtonActiveColor;
             BT_Meat.ForeColor = Color.White;
-            x
             ShowMeat();
         }
 
