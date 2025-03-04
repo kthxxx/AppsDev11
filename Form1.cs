@@ -1,3 +1,4 @@
+﻿using System.Runtime.CompilerServices;
 using GroceryDiscountApp.components;
 
 namespace GroceryDiscountApp
@@ -6,24 +7,31 @@ namespace GroceryDiscountApp
     {
         private static readonly Color ButtonActiveColor = Color.FromArgb(23, 162, 184);
         private static readonly Color ButtonDefaultColor = Color.White;
+        private Receipt receiptForm; // Add this field to hold the reference to the receipt form
 
         public MainFormd()
         {
             InitializeComponent();
+            BT_Calculate.Click += new EventHandler(BT_Calculate_Click);
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
             // Optionally, you can show a default product category on load
-            ShowAllProduct();
+            bool showDefaultCategoryOnLoad = true; // This can be set based on a configuration or user preference
+
+            if (showDefaultCategoryOnLoad)
+            {
+                ShowAllProduct();
+            }
         }
-            
 
         private void BT_Meat_Click(object sender, EventArgs e)
         {
             ResetButtonColors();
             BT_Meat.BackColor = ButtonActiveColor;
             BT_Meat.ForeColor = Color.White;
+
             ShowMeat();
         }
 
@@ -54,14 +62,6 @@ namespace GroceryDiscountApp
             ShowFruits();
         }
 
-        private void BT_Dairy_Click(object sender, EventArgs e)
-        {
-            ResetButtonColors();
-            BT_Dairy.BackColor = ButtonActiveColor;
-            BT_Dairy.ForeColor = Color.White;
-
-            ShowDairy();
-        }
 
         private void ResetButtonColors()
         {
@@ -69,13 +69,11 @@ namespace GroceryDiscountApp
             BT_Vegi.BackColor = ButtonDefaultColor;
             BT_Fruit.BackColor = ButtonDefaultColor;
             BT_Meat.BackColor = ButtonDefaultColor;
-            BT_Dairy.BackColor = ButtonDefaultColor;
 
             BT_All.ForeColor = Color.FromArgb(23, 162, 184);
             BT_Vegi.ForeColor = Color.FromArgb(23, 162, 184);
             BT_Fruit.ForeColor = Color.FromArgb(23, 162, 184);
             BT_Meat.ForeColor = Color.FromArgb(23, 162, 184);
-            BT_Dairy.ForeColor = Color.FromArgb(23, 162, 184);
         }
 
         private void ShowVegetables()
@@ -125,17 +123,186 @@ namespace GroceryDiscountApp
 
         private void BT_Calculate_Click(object sender, EventArgs e)
         {
-            Reciept form2 = new Reciept();
-
-            form2.Show();
-
-
-
+            ShowReceipt();
         }
 
-        private void LogoClicked(object sender, EventArgs e)
+        private decimal CalculateSubtotal()
         {
-            ShowMeat();
+            decimal subtotal = 0;
+            foreach (var productDetails in productDetailsMap.Values)
+            {
+                string quantityText = productDetails.lblProductQuantity.Text.Replace(": ", "");
+                int quantity = int.Parse(quantityText);
+                string priceText = productDetails.lblProductPrice.Text.Replace("₱", "").Trim();
+                decimal price = decimal.Parse(priceText);
+                subtotal += price * quantity;
+            }
+            return subtotal;
+        }
+
+        private void UpdateSubtotal()
+        {
+            decimal subtotal = CalculateSubtotal();
+            SubTotal.Text = $" {subtotal:C}";
+        }
+
+        private int CalculateTotalQuantity()
+        {
+            int totalQuantity = 0;
+            foreach (var productDetails in productDetailsMap.Values)
+            {
+                string quantityText = productDetails.lblProductQuantity.Text.Replace(": ", "");
+                int quantity = int.Parse(quantityText);
+                totalQuantity += quantity;
+            }
+            return totalQuantity;
+        }
+
+        private int CountItemsInCartPanel()
+        {
+            return CartPanel.Controls.Count;
+        }
+
+        private void UpdateItemTotal()
+        {
+            int totalQuantity = CalculateTotalQuantity();
+            int totalItemCount = CountItemsInCartPanel();
+            QuantityTotal.Text = $" {totalQuantity}";
+            ItemTotal.Text = $" {totalItemCount}";
+        }
+
+        private void UpdateDiscountTotal()
+        {
+            decimal subtotal = CalculateSubtotal();
+            double discountedPrice = Products.Instance.GetDiscountedPrice();
+            decimal discountTotal = subtotal - (decimal)discountedPrice;
+
+            if (discountTotal < 0)
+            {
+                discountTotal = 0;
+            }
+
+            if (discountedPrice < 0)
+            {
+                discountedPrice = 0;
+            }
+
+            AllTotal.Text = $" {discountedPrice:C}";
+            DiscountTotal.Text = $" {discountTotal:C}";
+        }
+
+        private Dictionary<string, ProductDetailsControl> productDetailsMap = new Dictionary<string, ProductDetailsControl>();
+
+        private void BT_Remove_Click(object sender, EventArgs e)
+        {
+            Products prod = Products.Instance;
+            productDetailsMap.Clear();
+            CartPanel.Controls.Clear();
+            UpdateSubtotal();
+            UpdateItemTotal();
+            UpdateDiscountTotal();
+            prod.ProductList.Clear();
+
+            // Set totals to default values
+            SubTotal.Text = "₱0";
+            QuantityTotal.Text = "0";
+            ItemTotal.Text = "0";
+            AllTotal.Text = "₱0";
+            DiscountTotal.Text = "₱0";
+        }
+
+        public void RemoveProductFromCart(string productName)
+        {
+            if (productDetailsMap.ContainsKey(productName))
+            {
+                productDetailsMap.Remove(productName);
+                UpdateSubtotal();
+                UpdateItemTotal();
+                UpdateDiscountTotal();
+
+                // Reset discount if no items in the cart
+                if (CartPanel.Controls.Count == 0)
+                {
+                    DiscountTotal.Text = "₱0";
+                }
+            }
+        }
+
+        public void UpdateProductDetails(string productName, decimal price, int quantity)
+        {
+            if (productDetailsMap.ContainsKey(productName))
+            {
+                var productDetails = productDetailsMap[productName];
+                string quantityText = productDetails.lblProductQuantity.Text;
+                int currentQuantity = int.Parse(quantityText.Replace(" ", ""));
+                int newQuantity = currentQuantity + quantity;
+                productDetails.UpdateQuantity(newQuantity);
+                productDetails.lblProductQuantity.Text = $" {newQuantity}";
+                //productDetails.UpdatePrice(price * newQuantity);
+            }
+            else
+            {
+                ProductDetailsControl productDetails = new ProductDetailsControl();
+                productDetails.SetProductDetails(productName, price, quantity);
+                CartPanel.Controls.Add(productDetails);
+                productDetails.BringToFront();
+                productDetailsMap[productName] = productDetails;
+            }
+            UpdateSubtotal();
+            UpdateItemTotal();
+            UpdateDiscountTotal();
+
+            // Reset discount if no items in the cart
+            if (CartPanel.Controls.Count == 0)
+            {
+                DiscountTotal.Text = "₱0";
+            }
+        }
+
+        private void ShowReceipt()
+        {
+            decimal total = 0;
+            if (receiptForm == null || receiptForm.IsDisposed)
+            {
+                List<Product> products = Products.Instance.ProductList;
+                decimal subtotal = CalculateSubtotal();
+                decimal discount = subtotal - (decimal)Products.Instance.GetDiscountedPrice();
+                total = (decimal)Products.Instance.GetDiscountedPrice();
+
+                receiptForm = new Receipt();
+                receiptForm.GenerateReceipt(products, subtotal, discount, total);
+                receiptForm.Show();
+            }
+            else
+            {
+                receiptForm.BringToFront();
+            }
+            Products prod = Products.Instance;
+            prod.ProductList.Clear();
+        }
+
+        public void ResetForm()
+        {
+            // Clear the product details map and cart panel
+            productDetailsMap.Clear();
+            CartPanel.Controls.Clear();
+
+            // Update the totals
+            UpdateSubtotal();
+            UpdateItemTotal();
+            UpdateDiscountTotal();
+
+            // Set totals to default values
+            SubTotal.Text = "₱0";
+            QuantityTotal.Text = "0";
+            ItemTotal.Text = "0";
+            AllTotal.Text = "₱0";
+            DiscountTotal.Text = "₱0";
+        }
+
+        private void allProduct2_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

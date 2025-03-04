@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GroceryDiscountApp.components
@@ -15,11 +8,20 @@ namespace GroceryDiscountApp.components
         public Apple()
         {
             InitializeComponent();
+            this.Click += new EventHandler(AppleClicked); // Ensure the click event is subscribed
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void AppleClicked(object? sender, EventArgs e)
         {
+            Products productList = Products.Instance;
+            productList.AddProduct("Apple", 30, 1);
 
+            // Assuming MainFormd is the main form
+            MainFormd? mainForm = (MainFormd?)Application.OpenForms["MainFormd"];
+            if (mainForm != null)
+            {
+                mainForm.UpdateProductDetails("Apple", 30, 1);
+            }
         }
     }
 }

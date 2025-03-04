@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace GroceryDiscountApp.components
 {
-    public partial class Watermelon : UserControl
-    {
-        public Watermelon()
-        {
+    public partial class Watermelon : UserControl {
+        public Watermelon() {
             InitializeComponent();
+            this.Click += new EventHandler(WatermelonClicked);
+        }
+
+        private void WatermelonClicked(object sender, EventArgs e) {
+            Products productList = Products.Instance;
+            productList.AddProduct("Watermelon", 185, 1);
+
+            MainFormd mainForm = (MainFormd?)Application.OpenForms["MainFormd"];
+            if (mainForm != null)
+            {
+                mainForm.UpdateProductDetails("Watermelon", 185, 1);
+            }
         }
     }
 }

@@ -56,8 +56,6 @@
             _1WholeChicken1.TabIndex = 0;
             _1WholeChicken1.Load += _1WholeChicken1_Load;
             _1WholeChicken1.Click += WholeChickenClicked;
-            this._1WholeChicken1.Click += new System.EventHandler(this.WholeChickenClicked);
-
             // 
             // chickenwings1
             // 
@@ -74,16 +72,15 @@
             breast1.Name = "breast1";
             breast1.Size = new Size(157, 189);
             breast1.TabIndex = 2;
+            breast1.Load += breast1_Load;
             // 
             // ribs1
             // 
-            ribs1.AutoScroll = true;
             ribs1.BackColor = Color.FromArgb(23, 162, 184);
             ribs1.Location = new Point(3, 198);
             ribs1.Name = "ribs1";
             ribs1.Size = new Size(157, 189);
             ribs1.TabIndex = 3;
-            ribs1.Load += ribs1_Load;
             // 
             // Meat
             // 

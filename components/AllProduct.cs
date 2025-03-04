@@ -17,19 +17,8 @@ namespace GroceryDiscountApp.components
             InitializeComponent();
         }
 
-        private void AppleClicked(object sender, EventArgs e)
-        {
-            ShowProductInCart();
-        }
+  
         
-        private void ShowProductInCart()
-        {
-            ProductInCart productInCart = new ProductInCart();
-            productInCart.Dock = DockStyle.Top;
-            productInCart.Name = "ProductInCart";
-            productInCart.BringToFront();
-            this.Controls.Add(productInCart);
-            productInCart.Show();
-        }
+        
     }
 }

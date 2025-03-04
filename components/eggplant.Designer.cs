@@ -32,55 +32,69 @@
             pictureBox1 = new PictureBox();
             label1 = new Label();
             label2 = new Label();
+            panel1 = new Panel();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(0, 0);
+            pictureBox1.Location = new Point(-1, 2);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(157, 127);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
+            pictureBox1.Click += EggplantClicked;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
-            label1.Font = new Font("Helvetica", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.Control;
             label1.Location = new Point(3, 130);
             label1.Name = "label1";
-            label1.Size = new Size(80, 19);
+            label1.Size = new Size(78, 19);
             label1.TabIndex = 1;
-            label1.Text = "EggPlant";
-            label1.Click += label1_Click;
+            label1.Text = "Eggplant";
+            label1.Click += EggplantClicked;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Helvetica", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = SystemColors.Control;
             label2.Location = new Point(3, 159);
             label2.Name = "label2";
-            label2.Size = new Size(96, 19);
+            label2.Size = new Size(94, 19);
             label2.TabIndex = 2;
-            label2.Text = "40₱ per /kg";
-            label2.Click += label2_Click;
+            label2.Text = "₱40 per /kg";
+            label2.Click += EggplantClicked;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.White;
+            panel1.Controls.Add(pictureBox1);
+            panel1.Location = new Point(1, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(218, 132);
+            panel1.TabIndex = 34;
             // 
             // Eggplant
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(23, 162, 184);
+            Controls.Add(panel1);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(pictureBox1);
             Name = "Eggplant";
             Size = new Size(157, 189);
+            Click += EggplantClicked;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            panel1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -90,5 +104,6 @@
         private PictureBox pictureBox1;
         private Label label1;
         protected Label label2;
+        private Panel panel1;
     }
 }

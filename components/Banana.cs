@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace GroceryDiscountApp.components
 {
-    public partial class Banana : UserControl
-    {
-        public Banana()
-        {
+    public partial class Banana : UserControl {
+        public Banana() {
             InitializeComponent();
+            this.Click += new EventHandler(BananaClicked);
+        }
+
+        private void BananaClicked(object sender, EventArgs e) {
+            Products productList = Products.Instance;
+            productList.AddProduct("Banana", 80, 1);
+
+            MainFormd mainForm = (MainFormd)Application.OpenForms["MainFormd"];
+            if (mainForm != null)
+            {
+                mainForm.UpdateProductDetails("Banana", 80, 1);
+            }
         }
     }
 }

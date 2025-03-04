@@ -32,54 +32,69 @@
             label2 = new Label();
             label1 = new Label();
             pictureBox1 = new PictureBox();
+            panel1 = new Panel();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Helvetica", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = SystemColors.Control;
             label2.Location = new Point(3, 164);
             label2.Name = "label2";
-            label2.Size = new Size(96, 19);
+            label2.Size = new Size(116, 19);
             label2.TabIndex = 26;
-            label2.Text = "95₱ per /kg";
-            label2.Click += label2_Click;
+            label2.Text = "₱30.00 per /kg";
+            label2.Click += AppleClicked;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
-            label1.Font = new Font("Helvetica", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.Control;
             label1.Location = new Point(0, 135);
             label1.Name = "label1";
-            label1.Size = new Size(54, 19);
+            label1.Size = new Size(53, 19);
             label1.TabIndex = 25;
             label1.Text = "Apple";
+            label1.Click += AppleClicked;
             // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(0, 5);
+            pictureBox1.Location = new Point(0, 3);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(157, 127);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 24;
             pictureBox1.TabStop = false;
+            pictureBox1.Click += AppleClicked;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.White;
+            panel1.Controls.Add(pictureBox1);
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(157, 132);
+            panel1.TabIndex = 27;
             // 
             // Apple
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(23, 162, 184);
+            Controls.Add(panel1);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(pictureBox1);
             Name = "Apple";
             Size = new Size(157, 189);
+            Click += AppleClicked;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            panel1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -89,5 +104,6 @@
         protected Label label2;
         private Label label1;
         private PictureBox pictureBox1;
+        private Panel panel1;
     }
 }

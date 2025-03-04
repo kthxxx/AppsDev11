@@ -15,6 +15,20 @@ namespace GroceryDiscountApp.components
         public Breast()
         {
             InitializeComponent();
+            this.Click += new EventHandler(BreastClicked); // Ensure the click event is subscribed
+        }
+
+        private void BreastClicked(object? sender, EventArgs e)
+        {
+            Products productList = Products.Instance;
+            productList.AddProduct("Chicken Breast", 190, 1);
+
+            // Assuming MainFormd is the main form
+            MainFormd? mainForm = (MainFormd?)Application.OpenForms["MainFormd"];
+            if (mainForm != null)
+            {
+                mainForm.UpdateProductDetails("Chicken Breast", 190, 1);
+            }
         }
     }
 }

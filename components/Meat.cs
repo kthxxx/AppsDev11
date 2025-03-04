@@ -21,19 +21,7 @@ namespace GroceryDiscountApp.components
 
         private void WholeChickenClicked(object sender, EventArgs e)
         {
-       
-        }
 
-
-
-
-
-        private void ShowProductInCart()
-        {
-            ProductInCart productInCart = new ProductInCart();
-            productInCart.Dock = DockStyle.Top;
-            productInCart.Name = "ProductInCart";
-            productInCart.BringToFront();
         }
 
         private void ribs1_Load(object sender, EventArgs e)
@@ -46,6 +34,11 @@ namespace GroceryDiscountApp.components
 
         private void _1WholeChicken1_Load(object sender, EventArgs e)
         {
+        }
+
+        private void breast1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

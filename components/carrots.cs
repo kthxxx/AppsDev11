@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GroceryDiscountApp.components
@@ -15,11 +8,20 @@ namespace GroceryDiscountApp.components
         public Carrots()
         {
             InitializeComponent();
+            this.Click += new EventHandler(CarrotsClicked); 
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void CarrotsClicked(object? sender, EventArgs e)
         {
+            Products productList = Products.Instance;
+            productList.AddProduct("Carrot", 50, 1);
 
+            // Assuming MainFormd is the main form
+            MainFormd? mainForm = (MainFormd?)Application.OpenForms["MainFormd"];
+            if (mainForm != null)
+            {
+                mainForm.UpdateProductDetails("Carrot", 50, 1);
+            }
         }
     }
 }

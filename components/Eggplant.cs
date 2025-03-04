@@ -10,21 +10,22 @@ using System.Windows.Forms;
 
 namespace GroceryDiscountApp.components
 {
-    public partial class Eggplant : UserControl
-    {
-        public Eggplant()
-        {
+    public partial class Eggplant : UserControl {
+        public Eggplant() {
             InitializeComponent();
+            this.Click += new EventHandler(EggplantClicked);
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
+        private void EggplantClicked(object sender, EventArgs e) {
+            Products productList = Products.Instance;
+            productList.AddProduct("Eggplant", 40, 1);
 
+            MainFormd? mainForm = (MainFormd?)Application.OpenForms["MainFormd"];
+            if (mainForm != null)
+            {
+                mainForm.UpdateProductDetails("Eggplant", 40, 1);
+            }
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
