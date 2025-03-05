@@ -62,9 +62,6 @@ namespace GroceryDiscountApp
 
         public void UpdateQuantity(int quantity)
         {
-            Products prod = Products.Instance;
-            Product? p = prod.GetProductDetails(lblProductName.Text);
-            prod.AddProduct(p.Name, p.Price, quantity);
             lblProductQuantity.Text = quantity.ToString();
         }
 
