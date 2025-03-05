@@ -100,7 +100,18 @@ namespace GroceryDiscountApp
         }
 
         private void BT_Calculate_Click(object sender, EventArgs e) {
-            ShowReceipt();
+            MainFormd? mainForm = Application.OpenForms.OfType<MainFormd>().FirstOrDefault();
+            var productList = Products.Instance.ProductList;
+            if (productList.Count > 0) {
+                MessageBox.Show("Thank you for shopping at 7 ebelen!");
+                if (mainForm != null) {
+                    // Call the reset method on MainFormd
+                    mainForm.ResetForm();
+                }
+                productList.Clear();
+            } else {
+                MessageBox.Show("You currently have no items in your cart");
+            }
         }
 
         public decimal CalculateSubtotal() {
@@ -262,6 +273,10 @@ namespace GroceryDiscountApp
             TextBox currentOBJ = (TextBox)sender;
 
             currentOBJ.ForeColor = SystemColors.Control;
+        }
+
+        private void MainFormd_Load(object sender, EventArgs e) {
+
         }
     }
 }

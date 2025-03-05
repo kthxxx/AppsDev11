@@ -371,7 +371,6 @@
             BT_Calculate.TabIndex = 0;
             BT_Calculate.Text = "Checkout";
             BT_Calculate.UseVisualStyleBackColor = false;
-            BT_Calculate.Click += BT_Calculate_Click;
             // 
             // BT_Vegi
             // 
@@ -472,6 +471,7 @@
             Name = "MainFormd";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Grocery Store";
+            Load += MainFormd_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
