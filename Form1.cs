@@ -3,31 +3,26 @@ using GroceryDiscountApp.components;
 
 namespace GroceryDiscountApp
 {
-    public partial class MainFormd : Form
-    {
+    public partial class MainFormd : Form {
         private static readonly Color ButtonActiveColor = Color.FromArgb(23, 162, 184);
         private static readonly Color ButtonDefaultColor = Color.White;
         private Receipt receiptForm; // Add this field to hold the reference to the receipt form
 
-        public MainFormd()
-        {
+        public MainFormd() {
             InitializeComponent();
             BT_Calculate.Click += new EventHandler(BT_Calculate_Click);
         }
 
-        private void MainForm_Load(object sender, EventArgs e)
-        {
+        private void MainForm_Load(object sender, EventArgs e) {
             // Optionally, you can show a default product category on load
             bool showDefaultCategoryOnLoad = true; // This can be set based on a configuration or user preference
 
-            if (showDefaultCategoryOnLoad)
-            {
+            if (showDefaultCategoryOnLoad) {
                 ShowAllProduct();
             }
         }
 
-        private void BT_Meat_Click(object sender, EventArgs e)
-        {
+        private void BT_Meat_Click(object sender, EventArgs e) {
             ResetButtonColors();
             BT_Meat.BackColor = ButtonActiveColor;
             BT_Meat.ForeColor = Color.White;
@@ -35,8 +30,7 @@ namespace GroceryDiscountApp
             ShowMeat();
         }
 
-        private void BT_All_Click(object sender, EventArgs e)
-        {
+        private void BT_All_Click(object sender, EventArgs e) {
             ResetButtonColors();
             BT_All.BackColor = ButtonActiveColor;
             BT_All.ForeColor = Color.White;
@@ -44,8 +38,7 @@ namespace GroceryDiscountApp
             ShowAllProduct();
         }
 
-        private void BT_Vegi_Click_1(object sender, EventArgs e)
-        {
+        private void BT_Vegi_Click_1(object sender, EventArgs e) {
             ResetButtonColors();
             BT_Vegi.BackColor = ButtonActiveColor;
             BT_Vegi.ForeColor = Color.White;
@@ -53,8 +46,7 @@ namespace GroceryDiscountApp
             ShowVegetables();
         }
 
-        private void BT_Fruit_Click(object sender, EventArgs e)
-        {
+        private void BT_Fruit_Click(object sender, EventArgs e) {
             ResetButtonColors();
             BT_Fruit.BackColor = ButtonActiveColor;
             BT_Fruit.ForeColor = Color.White;
@@ -63,8 +55,7 @@ namespace GroceryDiscountApp
         }
 
 
-        private void ResetButtonColors()
-        {
+        private void ResetButtonColors() {
             BT_All.BackColor = ButtonDefaultColor;
             BT_Vegi.BackColor = ButtonDefaultColor;
             BT_Fruit.BackColor = ButtonDefaultColor;
@@ -76,61 +67,45 @@ namespace GroceryDiscountApp
             BT_Meat.ForeColor = Color.FromArgb(23, 162, 184);
         }
 
-        private void ShowVegetables()
-        {
+        private void ShowVegetables() {
             productDisplayPanel.Controls.Clear(); // Clear existing controls
             Vegetables vegetables = new Vegetables();
             productDisplayPanel.Controls.Add(vegetables); // Add to the panel
             vegetables.BringToFront();
         }
 
-        private void ShowFruits()
-        {
+        private void ShowFruits() {
             productDisplayPanel.Controls.Clear();
             Fruits fruits = new Fruits();
             productDisplayPanel.Controls.Add(fruits);
             fruits.BringToFront();
         }
 
-        private void ShowMeat()
-        {
+        private void ShowMeat() {
             productDisplayPanel.Controls.Clear();
             Meat meat = new Meat();
             productDisplayPanel.Controls.Add(meat);
             meat.BringToFront();
         }
 
-        private void ShowDairy()
-        {
-            productDisplayPanel.Controls.Clear();
-            Dairy dairy = new Dairy();
-            productDisplayPanel.Controls.Add(dairy);
-            dairy.BringToFront();
-        }
-
-        private void ShowAllProduct()
-        {
+        private void ShowAllProduct() {
             productDisplayPanel.Controls.Clear();
             AllProduct all = new AllProduct();
             productDisplayPanel.Controls.Add(all);
             all.BringToFront();
         }
 
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
+        private void panel3_Paint(object sender, PaintEventArgs e) {
 
         }
 
-        private void BT_Calculate_Click(object sender, EventArgs e)
-        {
+        private void BT_Calculate_Click(object sender, EventArgs e) {
             ShowReceipt();
         }
 
-        private decimal CalculateSubtotal()
-        {
+        public decimal CalculateSubtotal() {
             decimal subtotal = 0;
-            foreach (var productDetails in productDetailsMap.Values)
-            {
+            foreach (var productDetails in productDetailsMap.Values) {
                 string quantityText = productDetails.lblProductQuantity.Text.Replace(": ", "");
                 int quantity = int.Parse(quantityText);
                 string priceText = productDetails.lblProductPrice.Text.Replace("₱", "").Trim();
@@ -140,17 +115,14 @@ namespace GroceryDiscountApp
             return subtotal;
         }
 
-        private void UpdateSubtotal()
-        {
+        private void UpdateSubtotal() {
             decimal subtotal = CalculateSubtotal();
             SubTotal.Text = $" {subtotal:C}";
         }
 
-        private int CalculateTotalQuantity()
-        {
+        private int CalculateTotalQuantity() {
             int totalQuantity = 0;
-            foreach (var productDetails in productDetailsMap.Values)
-            {
+            foreach (var productDetails in productDetailsMap.Values) {
                 string quantityText = productDetails.lblProductQuantity.Text.Replace(": ", "");
                 int quantity = int.Parse(quantityText);
                 totalQuantity += quantity;
@@ -158,32 +130,27 @@ namespace GroceryDiscountApp
             return totalQuantity;
         }
 
-        private int CountItemsInCartPanel()
-        {
+        private int CountItemsInCartPanel() {
             return CartPanel.Controls.Count;
         }
 
-        private void UpdateItemTotal()
-        {
+        private void UpdateItemTotal() {
             int totalQuantity = CalculateTotalQuantity();
             int totalItemCount = CountItemsInCartPanel();
             QuantityTotal.Text = $" {totalQuantity}";
             ItemTotal.Text = $" {totalItemCount}";
         }
 
-        private void UpdateDiscountTotal()
-        {
+        private void UpdateDiscountTotal() {
             decimal subtotal = CalculateSubtotal();
             double discountedPrice = Products.Instance.GetDiscountedPrice();
             decimal discountTotal = subtotal - (decimal)discountedPrice;
 
-            if (discountTotal < 0)
-            {
+            if (discountTotal < 0) {
                 discountTotal = 0;
             }
 
-            if (discountedPrice < 0)
-            {
+            if (discountedPrice < 0) {
                 discountedPrice = 0;
             }
 
@@ -193,8 +160,7 @@ namespace GroceryDiscountApp
 
         private Dictionary<string, ProductDetailsControl> productDetailsMap = new Dictionary<string, ProductDetailsControl>();
 
-        private void BT_Remove_Click(object sender, EventArgs e)
-        {
+        private void BT_Remove_Click(object sender, EventArgs e) {
             Products prod = Products.Instance;
             productDetailsMap.Clear();
             CartPanel.Controls.Clear();
@@ -211,27 +177,23 @@ namespace GroceryDiscountApp
             DiscountTotal.Text = "₱0";
         }
 
-        public void RemoveProductFromCart(string productName)
-        {
-            if (productDetailsMap.ContainsKey(productName))
-            {
+        public void RemoveProductFromCart(string productName) {
+            if (productDetailsMap.ContainsKey(productName)) {
                 productDetailsMap.Remove(productName);
                 UpdateSubtotal();
                 UpdateItemTotal();
                 UpdateDiscountTotal();
 
                 // Reset discount if no items in the cart
-                if (CartPanel.Controls.Count == 0)
-                {
+                if (CartPanel.Controls.Count == 0) {
                     DiscountTotal.Text = "₱0";
                 }
             }
         }
 
-        public void UpdateProductDetails(string productName, decimal price, int quantity)
-        {
-            if (productDetailsMap.ContainsKey(productName))
-            {
+        public void UpdateProductDetails(string productName, decimal price, int quantity) {
+            Products prod = Products.Instance;
+            if (productDetailsMap.ContainsKey(productName)) {
                 var productDetails = productDetailsMap[productName];
                 string quantityText = productDetails.lblProductQuantity.Text;
                 int currentQuantity = int.Parse(quantityText.Replace(" ", ""));
@@ -239,9 +201,7 @@ namespace GroceryDiscountApp
                 productDetails.UpdateQuantity(newQuantity);
                 productDetails.lblProductQuantity.Text = $" {newQuantity}";
                 //productDetails.UpdatePrice(price * newQuantity);
-            }
-            else
-            {
+            } else {
                 ProductDetailsControl productDetails = new ProductDetailsControl();
                 productDetails.SetProductDetails(productName, price, quantity);
                 CartPanel.Controls.Add(productDetails);
@@ -253,17 +213,14 @@ namespace GroceryDiscountApp
             UpdateDiscountTotal();
 
             // Reset discount if no items in the cart
-            if (CartPanel.Controls.Count == 0)
-            {
+            if (CartPanel.Controls.Count == 0) {
                 DiscountTotal.Text = "₱0";
             }
         }
 
-        private void ShowReceipt()
-        {
+        private void ShowReceipt() {
             decimal total = 0;
-            if (receiptForm == null || receiptForm.IsDisposed)
-            {
+            if (receiptForm == null || receiptForm.IsDisposed) {
                 List<Product> products = Products.Instance.ProductList;
                 decimal subtotal = CalculateSubtotal();
                 decimal discount = subtotal - (decimal)Products.Instance.GetDiscountedPrice();
@@ -272,17 +229,14 @@ namespace GroceryDiscountApp
                 receiptForm = new Receipt();
                 receiptForm.GenerateReceipt(products, subtotal, discount, total);
                 receiptForm.Show();
-            }
-            else
-            {
+            } else {
                 receiptForm.BringToFront();
             }
             Products prod = Products.Instance;
             prod.ProductList.Clear();
         }
 
-        public void ResetForm()
-        {
+        public void ResetForm() {
             // Clear the product details map and cart panel
             productDetailsMap.Clear();
             CartPanel.Controls.Clear();
@@ -300,9 +254,14 @@ namespace GroceryDiscountApp
             DiscountTotal.Text = "₱0";
         }
 
-        private void allProduct2_Load(object sender, EventArgs e)
-        {
+        private void allProduct2_Load(object sender, EventArgs e) {
 
+        }
+
+        private void TX_Subtotal_EnabledChanged(object sender, EventArgs e) {
+            TextBox currentOBJ = (TextBox)sender;
+
+            currentOBJ.ForeColor = SystemColors.Control;
         }
     }
 }

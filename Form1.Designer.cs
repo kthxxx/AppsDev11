@@ -27,8 +27,7 @@
         ///  the contents of this method with the code editor.
         /// </summary>
 
-        private void InitializeComponent()
-        {
+        private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainFormd));
             panel1 = new Panel();
             pictureBox1 = new PictureBox();
@@ -59,8 +58,8 @@
             BT_Meat = new Button();
             BT_All = new Button();
             productDisplayPanel = new FlowLayoutPanel();
-            allProduct2 = new components.AllProduct();
-            allProduct1 = new components.AllProduct();
+            allProduct2 = new GroceryDiscountApp.components.AllProduct();
+            allProduct1 = new GroceryDiscountApp.components.AllProduct();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel3.SuspendLayout();
@@ -77,17 +76,19 @@
             panel1.Controls.Add(textBox1);
             panel1.Controls.Add(BT_Sell);
             panel1.Controls.Add(panel2);
-            panel1.Location = new Point(1, -5);
+            panel1.Location = new Point(1, -6);
+            panel1.Margin = new Padding(4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(89, 673);
+            panel1.Size = new Size(111, 841);
             panel1.TabIndex = 0;
             // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(13, 14);
+            pictureBox1.Location = new Point(16, 18);
+            pictureBox1.Margin = new Padding(4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(60, 54);
+            pictureBox1.Size = new Size(75, 68);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 6;
             pictureBox1.TabStop = false;
@@ -97,12 +98,14 @@
             textBox1.BackColor = Color.FromArgb(52, 58, 64);
             textBox1.BorderStyle = BorderStyle.None;
             textBox1.Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBox1.ForeColor = Color.FromArgb(248, 249, 251);
-            textBox1.Location = new Point(18, 130);
+            textBox1.ForeColor = SystemColors.Control;
+            textBox1.Location = new Point(22, 162);
+            textBox1.Margin = new Padding(4);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(55, 28);
+            textBox1.Size = new Size(69, 35);
             textBox1.TabIndex = 5;
             textBox1.Text = "Sell";
+            textBox1.EnabledChanged += TX_Subtotal_EnabledChanged;
             // 
             // BT_Sell
             // 
@@ -112,27 +115,30 @@
             BT_Sell.BackgroundImageLayout = ImageLayout.Stretch;
             BT_Sell.FlatAppearance.BorderSize = 0;
             BT_Sell.FlatStyle = FlatStyle.Flat;
-            BT_Sell.Location = new Point(11, 78);
+            BT_Sell.Location = new Point(14, 98);
+            BT_Sell.Margin = new Padding(4);
             BT_Sell.Name = "BT_Sell";
-            BT_Sell.Size = new Size(52, 53);
+            BT_Sell.Size = new Size(65, 66);
             BT_Sell.TabIndex = 4;
             BT_Sell.UseVisualStyleBackColor = false;
             // 
             // panel2
             // 
             panel2.BackColor = Color.WhiteSmoke;
-            panel2.Location = new Point(88, 8);
+            panel2.Location = new Point(110, 10);
+            panel2.Margin = new Padding(4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1131, 66);
+            panel2.Size = new Size(1414, 82);
             panel2.TabIndex = 1;
             // 
             // panel3
             // 
             panel3.BackColor = SystemColors.ButtonHighlight;
             panel3.Controls.Add(ShopName);
-            panel3.Location = new Point(90, 1);
+            panel3.Location = new Point(112, 1);
+            panel3.Margin = new Padding(4);
             panel3.Name = "panel3";
-            panel3.Size = new Size(1197, 66);
+            panel3.Size = new Size(1496, 82);
             panel3.TabIndex = 1;
             panel3.Paint += panel3_Paint;
             // 
@@ -141,9 +147,10 @@
             ShopName.BorderStyle = BorderStyle.None;
             ShopName.Font = new Font("Microsoft Sans Serif", 24F, FontStyle.Italic, GraphicsUnit.Point, 0);
             ShopName.ForeColor = Color.FromArgb(23, 162, 185);
-            ShopName.Location = new Point(6, 11);
+            ShopName.Location = new Point(8, 14);
+            ShopName.Margin = new Padding(4);
             ShopName.Name = "ShopName";
-            ShopName.Size = new Size(558, 37);
+            ShopName.Size = new Size(698, 46);
             ShopName.TabIndex = 0;
             ShopName.Text = "7 Ebelen";
             // 
@@ -152,9 +159,10 @@
             panel5.BackColor = Color.FromArgb(52, 58, 64);
             panel5.Controls.Add(Panel0);
             panel5.ForeColor = Color.White;
-            panel5.Location = new Point(795, 67);
+            panel5.Location = new Point(994, 84);
+            panel5.Margin = new Padding(4);
             panel5.Name = "panel5";
-            panel5.Size = new Size(492, 600);
+            panel5.Size = new Size(615, 750);
             panel5.TabIndex = 3;
             // 
             // Panel0
@@ -166,15 +174,16 @@
             Panel0.Location = new Point(0, 0);
             Panel0.Margin = new Padding(2);
             Panel0.Name = "Panel0";
-            Panel0.Size = new Size(490, 583);
+            Panel0.Size = new Size(612, 729);
             Panel0.TabIndex = 3;
             // 
             // CartPanel
             // 
             CartPanel.AutoScroll = true;
-            CartPanel.Location = new Point(3, 6);
+            CartPanel.Location = new Point(4, 8);
+            CartPanel.Margin = new Padding(4);
             CartPanel.Name = "CartPanel";
-            CartPanel.Size = new Size(474, 394);
+            CartPanel.Size = new Size(592, 492);
             CartPanel.TabIndex = 12;
             // 
             // panel6
@@ -193,9 +202,10 @@
             panel6.Controls.Add(panel7);
             panel6.Controls.Add(BT_Remove);
             panel6.Controls.Add(BT_Calculate);
-            panel6.Location = new Point(1, 406);
+            panel6.Location = new Point(1, 508);
+            panel6.Margin = new Padding(4);
             panel6.Name = "panel6";
-            panel6.Size = new Size(488, 191);
+            panel6.Size = new Size(610, 239);
             panel6.TabIndex = 0;
             // 
             // AllTotal
@@ -204,21 +214,25 @@
             AllTotal.BorderStyle = BorderStyle.None;
             AllTotal.Font = new Font("Arial", 14.25F);
             AllTotal.ForeColor = SystemColors.Control;
-            AllTotal.Location = new Point(334, 100);
+            AllTotal.Location = new Point(418, 125);
+            AllTotal.Margin = new Padding(4);
             AllTotal.Name = "AllTotal";
-            AllTotal.Size = new Size(100, 22);
+            AllTotal.Size = new Size(125, 28);
             AllTotal.TabIndex = 11;
             AllTotal.Text = "₱0";
+            AllTotal.EnabledChanged += TX_Subtotal_EnabledChanged;
             // 
             // LB_Total
             // 
             LB_Total.AutoSize = true;
             LB_Total.Font = new Font("Arial", 14F, FontStyle.Bold);
-            LB_Total.Location = new Point(334, 75);
+            LB_Total.Location = new Point(418, 94);
+            LB_Total.Margin = new Padding(4, 0, 4, 0);
             LB_Total.Name = "LB_Total";
-            LB_Total.Size = new Size(56, 22);
+            LB_Total.Size = new Size(69, 29);
             LB_Total.TabIndex = 10;
             LB_Total.Text = "Total";
+            LB_Total.EnabledChanged += TX_Subtotal_EnabledChanged;
             // 
             // DiscountTotal
             // 
@@ -226,21 +240,25 @@
             DiscountTotal.BorderStyle = BorderStyle.None;
             DiscountTotal.Font = new Font("Arial", 14.25F);
             DiscountTotal.ForeColor = SystemColors.Control;
-            DiscountTotal.Location = new Point(214, 99);
+            DiscountTotal.Location = new Point(268, 124);
+            DiscountTotal.Margin = new Padding(4);
             DiscountTotal.Name = "DiscountTotal";
-            DiscountTotal.Size = new Size(100, 22);
+            DiscountTotal.Size = new Size(125, 28);
             DiscountTotal.TabIndex = 9;
             DiscountTotal.Text = "₱0";
+            DiscountTotal.EnabledChanged += TX_Subtotal_EnabledChanged;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Arial", 14F, FontStyle.Bold);
-            label1.Location = new Point(214, 74);
+            label1.Location = new Point(268, 92);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(93, 22);
+            label1.Size = new Size(116, 29);
             label1.TabIndex = 8;
             label1.Text = "Discount";
+            label1.EnabledChanged += TX_Subtotal_EnabledChanged;
             // 
             // QuantityTotal
             // 
@@ -248,21 +266,25 @@
             QuantityTotal.BorderStyle = BorderStyle.None;
             QuantityTotal.Font = new Font("Arial", 14.25F);
             QuantityTotal.ForeColor = SystemColors.Control;
-            QuantityTotal.Location = new Point(105, 100);
+            QuantityTotal.Location = new Point(131, 125);
+            QuantityTotal.Margin = new Padding(4);
             QuantityTotal.Name = "QuantityTotal";
-            QuantityTotal.Size = new Size(100, 22);
+            QuantityTotal.Size = new Size(125, 28);
             QuantityTotal.TabIndex = 7;
             QuantityTotal.Text = "0";
+            QuantityTotal.EnabledChanged += TX_Subtotal_EnabledChanged;
             // 
             // LB_Quantity
             // 
             LB_Quantity.AutoSize = true;
             LB_Quantity.Font = new Font("Arial", 14F, FontStyle.Bold);
-            LB_Quantity.Location = new Point(99, 75);
+            LB_Quantity.Location = new Point(124, 94);
+            LB_Quantity.Margin = new Padding(4, 0, 4, 0);
             LB_Quantity.Name = "LB_Quantity";
-            LB_Quantity.Size = new Size(88, 22);
+            LB_Quantity.Size = new Size(110, 29);
             LB_Quantity.TabIndex = 6;
             LB_Quantity.Text = "Quantity";
+            LB_Quantity.EnabledChanged += TX_Subtotal_EnabledChanged;
             // 
             // ItemTotal
             // 
@@ -270,21 +292,25 @@
             ItemTotal.BorderStyle = BorderStyle.None;
             ItemTotal.Font = new Font("Arial", 14.25F);
             ItemTotal.ForeColor = SystemColors.Control;
-            ItemTotal.Location = new Point(7, 100);
+            ItemTotal.Location = new Point(9, 125);
+            ItemTotal.Margin = new Padding(4);
             ItemTotal.Name = "ItemTotal";
-            ItemTotal.Size = new Size(100, 22);
+            ItemTotal.Size = new Size(125, 28);
             ItemTotal.TabIndex = 5;
             ItemTotal.Text = "0";
+            ItemTotal.EnabledChanged += TX_Subtotal_EnabledChanged;
             // 
             // ItemLabel
             // 
             ItemLabel.AutoSize = true;
             ItemLabel.Font = new Font("Arial", 14F, FontStyle.Bold);
-            ItemLabel.Location = new Point(7, 75);
+            ItemLabel.Location = new Point(9, 94);
+            ItemLabel.Margin = new Padding(4, 0, 4, 0);
             ItemLabel.Name = "ItemLabel";
-            ItemLabel.Size = new Size(60, 22);
+            ItemLabel.Size = new Size(75, 29);
             ItemLabel.TabIndex = 4;
             ItemLabel.Text = "Items";
+            ItemLabel.EnabledChanged += TX_Subtotal_EnabledChanged;
             // 
             // SubTotal
             // 
@@ -292,9 +318,10 @@
             SubTotal.BorderStyle = BorderStyle.None;
             SubTotal.Font = new Font("Arial", 12F);
             SubTotal.ForeColor = SystemColors.Control;
-            SubTotal.Location = new Point(7, 28);
+            SubTotal.Location = new Point(9, 35);
+            SubTotal.Margin = new Padding(4);
             SubTotal.Name = "SubTotal";
-            SubTotal.Size = new Size(100, 19);
+            SubTotal.Size = new Size(125, 23);
             SubTotal.TabIndex = 3;
             // 
             // TX_Subtotal
@@ -303,27 +330,31 @@
             TX_Subtotal.BorderStyle = BorderStyle.None;
             TX_Subtotal.Font = new Font("Arial", 10F, FontStyle.Bold);
             TX_Subtotal.ForeColor = SystemColors.Control;
-            TX_Subtotal.Location = new Point(7, 12);
+            TX_Subtotal.Location = new Point(9, 15);
+            TX_Subtotal.Margin = new Padding(4);
             TX_Subtotal.Name = "TX_Subtotal";
-            TX_Subtotal.Size = new Size(100, 16);
+            TX_Subtotal.Size = new Size(125, 20);
             TX_Subtotal.TabIndex = 0;
             TX_Subtotal.Text = "Subtotal";
+            TX_Subtotal.EnabledChanged += TX_Subtotal_EnabledChanged;
             // 
             // panel7
             // 
             panel7.BackColor = Color.White;
-            panel7.Location = new Point(7, 56);
+            panel7.Location = new Point(9, 70);
+            panel7.Margin = new Padding(4);
             panel7.Name = "panel7";
-            panel7.Size = new Size(465, 10);
+            panel7.Size = new Size(581, 12);
             panel7.TabIndex = 2;
             // 
             // BT_Remove
             // 
             BT_Remove.BackColor = Color.FromArgb(220, 53, 68);
             BT_Remove.Font = new Font("Arial", 21.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            BT_Remove.Location = new Point(39, 132);
+            BT_Remove.Location = new Point(49, 165);
+            BT_Remove.Margin = new Padding(4);
             BT_Remove.Name = "BT_Remove";
-            BT_Remove.Size = new Size(60, 46);
+            BT_Remove.Size = new Size(75, 58);
             BT_Remove.TabIndex = 1;
             BT_Remove.Text = "🗑️";
             BT_Remove.UseVisualStyleBackColor = false;
@@ -333,9 +364,10 @@
             // 
             BT_Calculate.BackColor = Color.FromArgb(40, 167, 69);
             BT_Calculate.Font = new Font("Arial", 16F, FontStyle.Bold);
-            BT_Calculate.Location = new Point(214, 132);
+            BT_Calculate.Location = new Point(268, 165);
+            BT_Calculate.Margin = new Padding(4);
             BT_Calculate.Name = "BT_Calculate";
-            BT_Calculate.Size = new Size(262, 46);
+            BT_Calculate.Size = new Size(328, 58);
             BT_Calculate.TabIndex = 0;
             BT_Calculate.Text = "Checkout";
             BT_Calculate.UseVisualStyleBackColor = false;
@@ -345,9 +377,10 @@
             // 
             BT_Vegi.Font = new Font("Arial", 10F, FontStyle.Bold);
             BT_Vegi.ForeColor = Color.FromArgb(23, 162, 184);
-            BT_Vegi.Location = new Point(105, 142);
+            BT_Vegi.Location = new Point(131, 178);
+            BT_Vegi.Margin = new Padding(4);
             BT_Vegi.Name = "BT_Vegi";
-            BT_Vegi.Size = new Size(111, 48);
+            BT_Vegi.Size = new Size(139, 60);
             BT_Vegi.TabIndex = 4;
             BT_Vegi.Text = "Vegetables";
             BT_Vegi.UseVisualStyleBackColor = true;
@@ -357,9 +390,10 @@
             // 
             BT_Fruit.Font = new Font("Arial", 14.25F, FontStyle.Bold);
             BT_Fruit.ForeColor = Color.FromArgb(23, 162, 184);
-            BT_Fruit.Location = new Point(105, 196);
+            BT_Fruit.Location = new Point(131, 245);
+            BT_Fruit.Margin = new Padding(4);
             BT_Fruit.Name = "BT_Fruit";
-            BT_Fruit.Size = new Size(111, 48);
+            BT_Fruit.Size = new Size(139, 60);
             BT_Fruit.TabIndex = 5;
             BT_Fruit.Text = "Fruits";
             BT_Fruit.UseVisualStyleBackColor = true;
@@ -369,9 +403,10 @@
             // 
             BT_Meat.Font = new Font("Arial", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BT_Meat.ForeColor = Color.FromArgb(23, 162, 184);
-            BT_Meat.Location = new Point(105, 250);
+            BT_Meat.Location = new Point(131, 312);
+            BT_Meat.Margin = new Padding(4);
             BT_Meat.Name = "BT_Meat";
-            BT_Meat.Size = new Size(111, 48);
+            BT_Meat.Size = new Size(139, 60);
             BT_Meat.TabIndex = 7;
             BT_Meat.Text = "Meat";
             BT_Meat.UseVisualStyleBackColor = true;
@@ -382,9 +417,10 @@
             BT_All.BackColor = Color.White;
             BT_All.Font = new Font("Arial", 14.25F, FontStyle.Bold);
             BT_All.ForeColor = Color.FromArgb(23, 162, 184);
-            BT_All.Location = new Point(105, 88);
+            BT_All.Location = new Point(131, 110);
+            BT_All.Margin = new Padding(4);
             BT_All.Name = "BT_All";
-            BT_All.Size = new Size(111, 48);
+            BT_All.Size = new Size(139, 60);
             BT_All.TabIndex = 8;
             BT_All.Text = "ALL";
             BT_All.UseVisualStyleBackColor = false;
@@ -393,17 +429,19 @@
             // productDisplayPanel
             // 
             productDisplayPanel.Controls.Add(allProduct2);
-            productDisplayPanel.Location = new Point(236, 83);
+            productDisplayPanel.Location = new Point(295, 104);
+            productDisplayPanel.Margin = new Padding(4);
             productDisplayPanel.Name = "productDisplayPanel";
-            productDisplayPanel.Size = new Size(540, 621);
+            productDisplayPanel.Size = new Size(675, 776);
             productDisplayPanel.TabIndex = 9;
             // 
             // allProduct2
             // 
             allProduct2.AutoScroll = true;
-            allProduct2.Location = new Point(3, 3);
+            allProduct2.Location = new Point(4, 5);
+            allProduct2.Margin = new Padding(4, 5, 4, 5);
             allProduct2.Name = "allProduct2";
-            allProduct2.Size = new Size(540, 566);
+            allProduct2.Size = new Size(675, 708);
             allProduct2.TabIndex = 0;
             allProduct2.Load += allProduct2_Load;
             // 
@@ -411,15 +449,16 @@
             // 
             allProduct1.AutoScroll = true;
             allProduct1.Location = new Point(3, 3);
+            allProduct1.Margin = new Padding(3, 4, 3, 4);
             allProduct1.Name = "allProduct1";
             allProduct1.Size = new Size(540, 566);
             allProduct1.TabIndex = 0;
             // 
             // MainFormd
             // 
-            AutoScaleDimensions = new SizeF(96F, 96F);
+            AutoScaleDimensions = new SizeF(120F, 120F);
             AutoScaleMode = AutoScaleMode.Dpi;
-            ClientSize = new Size(1284, 661);
+            ClientSize = new Size(1605, 826);
             Controls.Add(productDisplayPanel);
             Controls.Add(BT_All);
             Controls.Add(BT_Meat);
@@ -429,6 +468,7 @@
             Controls.Add(panel1);
             Controls.Add(panel5);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            Margin = new Padding(4);
             Name = "MainFormd";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Grocery Store";
